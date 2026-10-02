@@ -2,6 +2,7 @@ package dev.juruc.pixelvoice;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
@@ -76,9 +77,13 @@ public final class MainActivity extends Activity {
         applySetup(getIntent());
 
         downloadButton.setOnClickListener(view -> {
-            modelStatus.setText(R.string.model_verifying);
-            modelProgress.setProgress(0);
-            lease().download();
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(ModelStore.MODEL_URL))
+                    .addCategory(Intent.CATEGORY_BROWSABLE);
+            try {
+                startActivity(intent);
+            } catch (ActivityNotFoundException error) {
+                modelStatus.setText(R.string.model_browser_missing);
+            }
         });
         importButton.setOnClickListener(view -> openModelPicker());
         cancelModelButton.setOnClickListener(view -> lease().cancelModelSetup());
@@ -329,12 +334,10 @@ public final class MainActivity extends Activity {
         }
 
         @Override
-        public void onModelProgress(boolean download, long bytes, long totalBytes) {
+        public void onModelProgress(long bytes, long totalBytes) {
             int percent = (int) (bytes * 100 / totalBytes);
             modelProgress.setProgress(percent);
-            modelStatus.setText(getString(
-                    download ? R.string.model_downloading : R.string.model_importing,
-                    percent));
+            modelStatus.setText(getString(R.string.model_importing, percent));
         }
 
         @Override

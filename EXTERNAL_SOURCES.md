@@ -28,7 +28,11 @@ git -C third_party/transcribe.cpp checkout --detach <commit>
 git add third_party/transcribe.cpp
 ```
 
-Adapt `dictation/src/main/cpp/` and `CMakeLists.txt` if the engine API changes. Update the pin above. Keep CPU inference, credential-protected model storage, capture closure, and safe editor ownership intact. If the model changes, update `ModelStore.PRODUCTION_ARTIFACT`, `scripts/check.sh`, and the workflow download URL together. Never commit weights, recordings, or signing keys.
+Adapt `dictation/src/main/cpp/` and `CMakeLists.txt` if the engine API changes. Update the pin above. Keep CPU inference, credential-protected model storage, capture closure, and safe editor ownership intact. If the model changes, update `ModelStore.PRODUCTION_ARTIFACT`, `ModelStore.MODEL_URL`, `scripts/check.sh`, and the workflow download URL together. Never commit weights, recordings, or signing keys.
+
+## Model acquisition
+
+The app has no INTERNET permission or model downloader. **Download in browser** opens the pinned `ModelStore.MODEL_URL` externally; return to the app and choose **Import model file** in the Android document picker. Alternatively, transfer an externally downloaded file from another device and import it offline. The app never polls for files or owns/cancels browser downloads. SAF import verifies the pinned size and SHA-256 before atomic installation; no model is bundled.
 
 ## Verify an update
 

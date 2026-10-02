@@ -350,7 +350,7 @@ public final class VoiceCaptureRetirementTest {
             hex.append(String.format("%02x", value & 0xff));
         }
         ModelStore.Artifact artifact =
-                new ModelStore.Artifact("model.gguf", MODEL_BYTES.length, hex.toString(), "unused");
+                new ModelStore.Artifact("model.gguf", MODEL_BYTES.length, hex.toString());
         return new VoiceRuntime(files, artifact, engine, audio, ui);
     }
 
@@ -407,7 +407,7 @@ public final class VoiceCaptureRetirementTest {
         }
 
         @Override
-        public void onModelProgress(boolean download, long bytes, long totalBytes) {}
+        public void onModelProgress(long bytes, long totalBytes) {}
 
         @Override
         public void onTranscript(String text, boolean isFinal) {

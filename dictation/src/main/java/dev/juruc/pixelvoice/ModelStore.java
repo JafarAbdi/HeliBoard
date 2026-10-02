@@ -6,8 +6,6 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.nio.file.AtomicMoveNotSupportedException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -28,16 +26,13 @@ final class ModelStore implements AutoCloseable {
     static final String MODEL_URL = "https://huggingface.co/handy-computer/parakeet-unified-en-0.6b-gguf/resolve/"
             + "7e948f21b7bdbac698d3318db9d350f1096f3b6c/parakeet-unified-en-0.6b-Q8_0.gguf";
     private static final String MODEL_FILE = "parakeet-unified-en-0.6b-Q8_0.gguf";
-    private static final int CLIENT_NETWORK_CONNECT_TIMEOUT_MS = 30_000;
-    private static final int CLIENT_NETWORK_READ_TIMEOUT_MS = 30_000;
     static final Artifact PRODUCTION_ARTIFACT =
-            new Artifact(MODEL_FILE, MODEL_SIZE, MODEL_SHA256, MODEL_URL);
+            new Artifact(MODEL_FILE, MODEL_SIZE, MODEL_SHA256);
 
-    record Artifact(String fileName, long size, String sha256, String url) {
+    record Artifact(String fileName, long size, String sha256) {
         Artifact {
             Objects.requireNonNull(fileName);
             Objects.requireNonNull(sha256);
-            Objects.requireNonNull(url);
             if (fileName.isBlank() || size < 0 || sha256.length() != 64) {
                 throw new IllegalArgumentException("Invalid pinned artifact");
             }
@@ -53,7 +48,7 @@ final class ModelStore implements AutoCloseable {
 
         void onMissing();
 
-        void onProgress(boolean download, long bytes, long totalBytes);
+        void onProgress(long bytes, long totalBytes);
 
         void onReady(Path modelPath);
 
@@ -62,19 +57,13 @@ final class ModelStore implements AutoCloseable {
         void onError(String message);
     }
 
-    private record Progress(boolean download, long bytes) {}
-
-    private interface OperationInput {
-        InputStream open(Operation operation) throws IOException, CancelledException;
-    }
-
     private static final class Operation {
         final long generation;
         final Path partial;
         final AtomicBoolean cancelled = new AtomicBoolean();
         final AtomicReference<Closeable> activeIo = new AtomicReference<>();
         final AtomicReference<IOException> cancellationFailure = new AtomicReference<>();
-        final AtomicReference<Progress> latestProgress = new AtomicReference<>();
+        final AtomicReference<Long> latestProgress = new AtomicReference<>();
         final AtomicBoolean progressPosted = new AtomicBoolean();
         boolean published;
 
@@ -139,19 +128,10 @@ final class ModelStore implements AutoCloseable {
         workers.execute(() -> verifyInstalled(operation));
     }
 
-    synchronized void download() {
-        Operation operation = replaceOperation();
-        workers.execute(() -> acquire(operation, true, this::openDownload));
-    }
-
     synchronized void importModel(InputOpener opener) {
         Objects.requireNonNull(opener);
         Operation operation = replaceOperation();
-        workers.execute(() -> acquire(operation, false, ignored -> {
-            InputStream input = opener.open();
-            operation.register(input);
-            return new BufferedInputStream(input);
-        }));
+        workers.execute(() -> acquire(operation, opener));
     }
 
     void cancel() {
@@ -204,7 +184,7 @@ final class ModelStore implements AutoCloseable {
                 postTerminal(operation, listener::onMissing);
                 return;
             }
-            verifyFile(installedModel, operation, false, false);
+            verifyFile(installedModel, operation, false);
             postTerminal(operation, () -> listener.onReady(installedModel));
         } catch (CancelledException error) {
             postTerminal(operation, listener::onCancelled);
@@ -213,42 +193,21 @@ final class ModelStore implements AutoCloseable {
         }
     }
 
-    private InputStream openDownload(Operation operation) throws IOException, CancelledException {
-        HttpURLConnection connection = (HttpURLConnection) new URL(artifact.url()).openConnection();
-        connection.setInstanceFollowRedirects(true);
-        connection.setRequestProperty("Accept-Encoding", "identity");
-        connection.setConnectTimeout(CLIENT_NETWORK_CONNECT_TIMEOUT_MS);
-        connection.setReadTimeout(CLIENT_NETWORK_READ_TIMEOUT_MS);
-        operation.register(connection::disconnect);
-        try {
-            connection.connect();
-            int status = connection.getResponseCode();
-            if (status < 200 || status >= 300) {
-                throw new IOException("Model download returned HTTP " + status);
-            }
-            return new BufferedInputStream(connection.getInputStream());
-        } catch (IOException | RuntimeException error) {
-            operation.closeActive();
-            throw error;
-        }
-    }
-
-    private void acquire(
-            Operation operation,
-            boolean download,
-            OperationInput inputOpener) {
+    private void acquire(Operation operation, InputOpener inputOpener) {
         try {
             Files.createDirectories(directory);
             checkActive(operation);
-            try (InputStream input = inputOpener.open(operation);
+            InputStream opened = inputOpener.open();
+            operation.register(opened);
+            try (InputStream input = new BufferedInputStream(opened);
                     OutputStream output = new BufferedOutputStream(Files.newOutputStream(operation.partial))) {
                 checkActive(operation);
-                copy(operation, download, input, output);
+                copy(operation, input, output);
             } finally {
                 operation.closeActive();
             }
             checkActive(operation);
-            verifyFile(operation.partial, operation, download, true);
+            verifyFile(operation.partial, operation, true);
             publish(operation);
             postTerminal(operation, () -> listener.onReady(installedModel));
         } catch (CancelledException error) {
@@ -271,7 +230,7 @@ final class ModelStore implements AutoCloseable {
         }
     }
 
-    private void copy(Operation operation, boolean download, InputStream input, OutputStream output)
+    private void copy(Operation operation, InputStream input, OutputStream output)
             throws IOException, CancelledException {
         byte[] buffer = new byte[64 * 1024];
         long copied = 0;
@@ -283,7 +242,7 @@ final class ModelStore implements AutoCloseable {
                 throw new IOException("Model is larger than the pinned file");
             }
             output.write(buffer, 0, count);
-            progress(operation, download, copied);
+            progress(operation, copied);
         }
         output.flush();
         if (copied != artifact.size()) {
@@ -294,7 +253,6 @@ final class ModelStore implements AutoCloseable {
     private void verifyFile(
             Path path,
             Operation operation,
-            boolean download,
             boolean reportProgress)
             throws IOException, NoSuchAlgorithmException, CancelledException {
         long size = Files.size(path);
@@ -311,7 +269,7 @@ final class ModelStore implements AutoCloseable {
                 digest.update(buffer, 0, count);
                 checked += count;
                 if (reportProgress) {
-                    progress(operation, download, checked);
+                    progress(operation, checked);
                 }
             }
         }
@@ -321,8 +279,8 @@ final class ModelStore implements AutoCloseable {
         }
     }
 
-    private void progress(Operation operation, boolean download, long bytes) {
-        operation.latestProgress.set(new Progress(download, bytes));
+    private void progress(Operation operation, long bytes) {
+        operation.latestProgress.set(bytes);
         scheduleProgress(operation);
     }
 
@@ -334,10 +292,10 @@ final class ModelStore implements AutoCloseable {
     }
 
     private void dispatchProgress(Operation operation) {
-        Progress progress = operation.latestProgress.getAndSet(null);
+        Long bytes = operation.latestProgress.getAndSet(null);
         synchronized (this) {
-            if (progress != null && isActiveLocked(operation)) {
-                listener.onProgress(progress.download(), progress.bytes(), artifact.size());
+            if (bytes != null && isActiveLocked(operation)) {
+                listener.onProgress(bytes, artifact.size());
             }
         }
         operation.progressPosted.set(false);

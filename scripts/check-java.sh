@@ -23,5 +23,5 @@ for name in RecordingControllerTest VoiceRuntimeTest ModelStoreTest DictationTar
 done
 "$TOOLCHAIN/jdk17/bin/javac" --release 17 -cp "$CP" -d "$TMP" "${SOURCES[@]}" "${TESTS[@]}"
 "$TOOLCHAIN/jdk17/bin/java" -cp "$TMP:$CP" org.junit.runner.JUnitCore "${CLASSES[@]}" | tee "$TMP/junit.log"
-grep -Fxq 'OK (80 tests)' "$TMP/junit.log"
-echo 'PASS 80 Java tests: 26 core, 9 capture retirement, 45 streaming transaction cases'
+grep -Fxq 'OK (79 tests)' "$TMP/junit.log"
+echo 'PASS 79 Java tests: 25 core, 9 capture retirement, 45 streaming transaction cases'

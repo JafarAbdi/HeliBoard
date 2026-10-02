@@ -298,8 +298,6 @@ public final class VoiceRuntimeTest {
         ui.runUntil(() -> surface.events.contains("stage:READY"));
 
         assertTrue(lease.isActive());
-        lease.download();
-        assertEquals(VoiceRuntime.Stage.READY, runtime.stage());
         lease.importModel(opener);
         assertEquals(VoiceRuntime.Stage.READY, runtime.stage());
         ui.runAvailable();
@@ -309,8 +307,6 @@ public final class VoiceRuntimeTest {
         lease.start();
         ui.runUntil(() -> surface.events.contains("stage:RECORDING"));
         assertTrue(lease.isActive());
-        lease.download();
-        assertEquals(VoiceRuntime.Stage.RECORDING, runtime.stage());
         lease.importModel(opener);
         assertEquals(VoiceRuntime.Stage.RECORDING, runtime.stage());
         ui.runAvailable();
@@ -394,7 +390,7 @@ public final class VoiceRuntimeTest {
         for (byte value : digest) {
             hex.append(String.format("%02x", value & 0xff));
         }
-        return new ModelStore.Artifact("model.gguf", MODEL_BYTES.length, hex.toString(), "unused");
+        return new ModelStore.Artifact("model.gguf", MODEL_BYTES.length, hex.toString());
     }
 
     private static final class Surface implements VoiceRuntime.Listener {
@@ -414,7 +410,7 @@ public final class VoiceRuntimeTest {
         }
 
         @Override
-        public void onModelProgress(boolean download, long bytes, long totalBytes) {
+        public void onModelProgress(long bytes, long totalBytes) {
             progress.add(bytes);
         }
 

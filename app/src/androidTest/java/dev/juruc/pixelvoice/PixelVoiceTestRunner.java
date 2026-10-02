@@ -211,7 +211,7 @@ public final class PixelVoiceTestRunner extends Instrumentation {
                 PackageManager.GET_PERMISSIONS | PackageManager.GET_SERVICES
                         | PackageManager.GET_PROVIDERS);
         String receiverPermission = PACKAGE + ".DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION";
-        checkEquals(Set.of(Manifest.permission.RECORD_AUDIO, Manifest.permission.INTERNET,
+        checkEquals(Set.of(Manifest.permission.RECORD_AUDIO,
                         Manifest.permission.FOREGROUND_SERVICE,
                         Manifest.permission.FOREGROUND_SERVICE_MICROPHONE,
                         Manifest.permission.VIBRATE, Manifest.permission.READ_CONTACTS,
@@ -220,6 +220,8 @@ public final class PixelVoiceTestRunner extends Instrumentation {
                         "android.permission.WRITE_USER_DICTIONARY",
                         receiverPermission),
                 Set.of(info.requestedPermissions), "approved permissions");
+        check(!Set.of(info.requestedPermissions).contains(Manifest.permission.INTERNET),
+                "INTERNET permission must be absent");
         PermissionInfo receiver = packages.getPermissionInfo(receiverPermission, 0);
         checkEquals(receiverPermission, receiver.name, "app-private permission name");
         checkEquals(PACKAGE, receiver.packageName, "app-private permission owner");

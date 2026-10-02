@@ -26,7 +26,7 @@ actual_sha=$(sha256sum "$MODEL" | awk '{print $1}')
     -PpixelVoiceAbi=arm64-v8a --rerun-tasks :dictation:testReleaseUnitTest
 unit_tests=$(awk '/<testsuite / { for (i = 1; i <= NF; i++) if ($i ~ /^tests="/) { gsub(/[^0-9]/, "", $i); count += $i } } END { print count+0 }' \
     "$ROOT"/dictation/build/test-results/testReleaseUnitTest/TEST-*.xml)
-[[ "$unit_tests" == 80 ]] || { echo "Expected 80 dictation unit tests, got $unit_tests" >&2; exit 1; }
+[[ "$unit_tests" == 79 ]] || { echo "Expected 79 dictation unit tests, got $unit_tests" >&2; exit 1; }
 "$ROOT/gradlew" --no-daemon --max-workers=2 -Dorg.gradle.parallel=false -p "$ROOT" \
     -PpixelVoiceAbi=arm64-v8a :app:lintRelease :dictation:lintRelease
 
@@ -41,7 +41,11 @@ unzip -Z1 "$APK" > "$tmp/entries"
 
 permissions=$("$AAPT2" dump permissions "$APK")
 actual_permissions=$(sed -n "s/^uses-permission[^:]*: name='\([^']*\)'.*$/\1/p" <<<"$permissions" | sort)
-expected_permissions=$'android.permission.FOREGROUND_SERVICE\nandroid.permission.FOREGROUND_SERVICE_MICROPHONE\nandroid.permission.INTERNET\nandroid.permission.READ_CONTACTS\nandroid.permission.READ_USER_DICTIONARY\nandroid.permission.RECEIVE_BOOT_COMPLETED\nandroid.permission.RECORD_AUDIO\nandroid.permission.VIBRATE\nandroid.permission.WRITE_USER_DICTIONARY\nhelium314.keyboard.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'
+expected_permissions=$'android.permission.FOREGROUND_SERVICE\nandroid.permission.FOREGROUND_SERVICE_MICROPHONE\nandroid.permission.READ_CONTACTS\nandroid.permission.READ_USER_DICTIONARY\nandroid.permission.RECEIVE_BOOT_COMPLETED\nandroid.permission.RECORD_AUDIO\nandroid.permission.VIBRATE\nandroid.permission.WRITE_USER_DICTIONARY\nhelium314.keyboard.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'
+if grep -Fxq 'android.permission.INTERNET' <<<"$actual_permissions"; then
+    echo "The production APK must not request INTERNET" >&2
+    exit 1
+fi
 if [[ "$actual_permissions" != "$expected_permissions" ]]; then
     echo "Unexpected APK permission set:" >&2
     printf '%s\n' "$actual_permissions" >&2
@@ -129,5 +133,5 @@ for library in libandroidx.graphics.path.so libjni_latinime.so libpixelvoice_jni
     done <<<"$load_alignments"
 done
 
-echo "PASS CPU release APK signature, version, HeliBoard label, non-debuggable application, nine platform permissions plus app-private signature permission, keyboard assets, model/audio exclusion, rebuilt native libraries, native CPU behavior, no Vulkan linkage, ZIP alignment, and all three ELF alignments"
+echo "PASS CPU release APK signature, version, HeliBoard label, non-debuggable application, eight platform permissions plus app-private signature permission, no INTERNET, keyboard assets, model/audio exclusion, rebuilt native libraries, native CPU behavior, no Vulkan linkage, ZIP alignment, and all three ELF alignments"
 echo "APK: $APK"

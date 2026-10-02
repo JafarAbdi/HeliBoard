@@ -4,7 +4,7 @@
     <string name="title">HeliBoard</string>
     <string name="subtitle">Private, on-device English transcription</string>
     <string name="model_required">Install the 731 MB Parakeet model before recording.</string>
-    <string name="download_model">Download model</string>
+    <string name="download_model">Download in browser</string>
     <string name="import_model">Import model file</string>
     <string name="cancel_model">Cancel model setup</string>
     <string name="model_progress">Model progress</string>
@@ -33,8 +33,8 @@
     <string name="choose_keyboard">Choose keyboard</string>
     <string name="recording_error">Recording error: %1$s</string>
     <string name="model_verifying">Verifying model…</string>
-    <string name="model_missing">Model not installed</string>
-    <string name="model_downloading">Downloading model… %1$d%%</string>
+    <string name="model_missing">Download the model externally, then return here and import the model file.</string>
+    <string name="model_browser_missing">No browser available. Download the model on another device, transfer it here, then use Import model file.</string>
     <string name="model_importing">Importing model… %1$d%%</string>
     <string name="model_ready">Model verified</string>
     <string name="model_error">Model error: %1$s</string>

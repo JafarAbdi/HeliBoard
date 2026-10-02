@@ -413,7 +413,7 @@ public final class KeyboardDictation {
         }
 
         @Override
-        public void onModelProgress(boolean download, long bytes, long totalBytes) {}
+        public void onModelProgress(long bytes, long totalBytes) {}
 
         @Override
         public void onTranscript(String text, boolean isFinal) {

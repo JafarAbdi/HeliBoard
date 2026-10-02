@@ -22,7 +22,7 @@ final class VoiceRuntime {
     interface Listener {
         void onStage(Stage stage);
 
-        void onModelProgress(boolean download, long bytes, long totalBytes);
+        void onModelProgress(long bytes, long totalBytes);
 
         void onTranscript(String text, boolean isFinal);
 
@@ -71,13 +71,6 @@ final class VoiceRuntime {
             }
             if (ownsOperation(this)) {
                 controller.cancel();
-            }
-        }
-
-        void download() {
-            if (isActive() && modelPhase == ModelPhase.MISSING) {
-                beginAcquisition();
-                modelStore.download();
             }
         }
 
@@ -303,9 +296,9 @@ final class VoiceRuntime {
         }
 
         @Override
-        public void onProgress(boolean download, long bytes, long totalBytes) {
+        public void onProgress(long bytes, long totalBytes) {
             if (current != null) {
-                current.listener.onModelProgress(download, bytes, totalBytes);
+                current.listener.onModelProgress(bytes, totalBytes);
             }
         }
 

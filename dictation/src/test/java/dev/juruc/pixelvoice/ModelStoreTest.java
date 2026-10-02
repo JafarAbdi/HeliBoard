@@ -14,8 +14,6 @@ import org.junit.rules.TemporaryFolder;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.ServerSocket;
-import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -47,7 +45,7 @@ public final class ModelStoreTest {
     public void invalidImportsPreservePreviouslyVerifiedModel() throws Exception {
         byte[] expected = "good".getBytes(StandardCharsets.UTF_8);
         TestListener listener = new TestListener();
-        ModelStore store = store(listener, Runnable::run, artifact(expected, "unused"));
+        ModelStore store = store(listener, Runnable::run, artifact(expected));
 
         store.importModel(() -> new ByteArrayInputStream(expected));
         assertEquals("ready", listener.awaitTerminal());
@@ -72,7 +70,7 @@ public final class ModelStoreTest {
         byte[] expected = "new!".getBytes(StandardCharsets.UTF_8);
         QueuedExecutor callbacks = new QueuedExecutor();
         TestListener listener = new TestListener();
-        ModelStore store = store(listener, callbacks, artifact(expected, "unused"));
+        ModelStore store = store(listener, callbacks, artifact(expected));
         CountDownLatch oldOpenEntered = new CountDownLatch(1);
         CountDownLatch releaseOldOpen = new CountDownLatch(1);
         CountDownLatch oldInputClosed = new CountDownLatch(1);
@@ -112,7 +110,7 @@ public final class ModelStoreTest {
             callbackSubmitted.countDown();
             runnable.run();
         };
-        ModelStore store = store(listener, callbacks, artifact(expected, "unused"));
+        ModelStore store = store(listener, callbacks, artifact(expected));
         CountDownLatch openEntered = new CountDownLatch(1);
         CountDownLatch releaseOpen = new CountDownLatch(1);
 
@@ -132,35 +130,12 @@ public final class ModelStoreTest {
     }
 
     @Test
-    public void cancellingDownloadDisconnectsWhileResponseIsOpening() throws Exception {
-        byte[] expected = "good".getBytes(StandardCharsets.UTF_8);
-        CountDownLatch requestReceived = new CountDownLatch(1);
-        CountDownLatch clientDisconnected = new CountDownLatch(1);
-        try (ServerSocket server = new ServerSocket(0)) {
-            Thread serverThread = new Thread(() -> serveHangingResponse(server, requestReceived, clientDisconnected));
-            serverThread.setDaemon(true);
-            serverThread.start();
-
-            TestListener listener = new TestListener();
-            String url = "http://127.0.0.1:" + server.getLocalPort() + "/model.gguf";
-            ModelStore store = store(listener, Runnable::run, artifact(expected, url));
-            store.download();
-            assertTrue(requestReceived.await(5, TimeUnit.SECONDS));
-            store.cancel();
-
-            assertEquals("cancelled", listener.awaitTerminal());
-            assertTrue("HTTP connection remained open after cancellation",
-                    clientDisconnected.await(5, TimeUnit.SECONDS));
-        }
-    }
-
-    @Test
     public void concurrentStoresUseDifferentPartialFiles() throws Exception {
         byte[] expected = "good".getBytes(StandardCharsets.UTF_8);
         Path root = temporaryFolder.newFolder().toPath();
         TestListener firstListener = new TestListener();
         TestListener secondListener = new TestListener();
-        ModelStore.Artifact artifact = artifact(expected, "unused");
+        ModelStore.Artifact artifact = artifact(expected);
         ModelStore first = new ModelStore(root, firstListener, Runnable::run, artifact);
         ModelStore second = new ModelStore(root, secondListener, Runnable::run, artifact);
         stores.add(first);
@@ -193,7 +168,7 @@ public final class ModelStoreTest {
         }
         QueuedExecutor callbacks = new QueuedExecutor();
         TestListener listener = new TestListener();
-        ModelStore store = store(listener, callbacks, artifact(expected, "unused"));
+        ModelStore store = store(listener, callbacks, artifact(expected));
 
         store.importModel(() -> new OneByteInput(expected));
         assertTrue(callbacks.twoTasksSubmitted.await(5, TimeUnit.SECONDS));
@@ -213,8 +188,8 @@ public final class ModelStoreTest {
         return store;
     }
 
-    private static ModelStore.Artifact artifact(byte[] bytes, String url) throws Exception {
-        return new ModelStore.Artifact("model.gguf", bytes.length, sha256(bytes), url);
+    private static ModelStore.Artifact artifact(byte[] bytes) throws Exception {
+        return new ModelStore.Artifact("model.gguf", bytes.length, sha256(bytes));
     }
 
     private static String sha256(byte[] bytes) throws Exception {
@@ -235,34 +210,6 @@ public final class ModelStoreTest {
         }
     }
 
-    private static void serveHangingResponse(
-            ServerSocket server,
-            CountDownLatch requestReceived,
-            CountDownLatch clientDisconnected) {
-        try (Socket socket = server.accept()) {
-            InputStream input = socket.getInputStream();
-            int previous = -1;
-            int current;
-            int newlineCount = 0;
-            while ((current = input.read()) != -1) {
-                if (current == '\n') {
-                    ++newlineCount;
-                } else if (current != '\r') {
-                    newlineCount = 0;
-                }
-                if (newlineCount == 2 || (previous == '\n' && current == '\n')) {
-                    break;
-                }
-                previous = current;
-            }
-            requestReceived.countDown();
-            while (input.read() != -1) {}
-            clientDisconnected.countDown();
-        } catch (IOException error) {
-            clientDisconnected.countDown();
-        }
-    }
-
     private static final class TestListener implements ModelStore.Listener {
         final BlockingQueue<String> terminals = new LinkedBlockingQueue<>();
         final List<Long> progressBytes = Collections.synchronizedList(new ArrayList<>());
@@ -278,7 +225,7 @@ public final class ModelStoreTest {
         }
 
         @Override
-        public void onProgress(boolean download, long bytes, long totalBytes) {
+        public void onProgress(long bytes, long totalBytes) {
             progressBytes.add(bytes);
         }
 
