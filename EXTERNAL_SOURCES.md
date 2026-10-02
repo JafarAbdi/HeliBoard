@@ -6,7 +6,15 @@
 
 Start with a clean checkout and save the current branch before rebasing.
 
-The local fork is `/home/juruc/workspaces/pixel-voice`. There is no `origin` or hosted private fork. All fork commits are local. The repository is nonshallow and contains full upstream ancestry.
+```sh
+git fetch upstream
+old_base=$(git rev-parse main)
+git switch main
+git merge --ff-only upstream/main
+git switch pixel-voice
+git rebase --onto main "$old_base"
+git submodule update --init --recursive
+```
 
 Resolve conflicts in the keyboard integration and build files. Keep upstream names, icons, repository files, and version metadata. Update the selected base above, `app/build.gradle.kts`, and the version check in `scripts/check.sh` together.
 
