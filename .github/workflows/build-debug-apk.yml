@@ -17,6 +17,7 @@ jobs:
   build:
     runs-on: ubuntu-24.04
     env:
+      GRADLE_OPTS: -Dorg.gradle.caching=true
       CMAKE_C_COMPILER_LAUNCHER: /usr/bin/ccache
       CMAKE_CXX_COMPILER_LAUNCHER: /usr/bin/ccache
       NDK_CCACHE: /usr/bin/ccache
