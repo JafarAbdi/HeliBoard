@@ -59,8 +59,8 @@ The APKs are under `app/build/outputs/pixelVoice/<abi>/`. Emulator results do no
 
 ## Publish a release
 
-Keep `ANDROID_DEBUG_KEYSTORE_BASE64` in the fork's Actions secrets. It contains the existing `~/.android/debug.keystore`, encoded as base64. The workflow checks its pinned signer and uploads only the APK and checksum. Manual dispatch on `pixel-voice` builds without publishing.
+Keep `ANDROID_DEBUG_KEYSTORE_BASE64` in the fork's Actions secrets. It contains the existing `~/.android/debug.keystore`, encoded as base64. The workflow checks its pinned signer and uploads only the APK and checksum. Pushes and manual dispatch on `pixel-voice` build, check, and update the existing `continuous` prerelease. Native compilation and Gradle task caches are enabled.
 
-When publication is authorized, push a new `dictation-*` tag on `pixel-voice`. Tag pushes build, check, and publish automatically. Delete an interrupted draft before rerunning publication.
+Use the permanent [APK download](https://github.com/JafarAbdi/HeliBoard/releases/download/continuous/HeliBoard.apk). The single `continuous` tag moves to the verified build commit; do not create a tag per build. Publication drafts the release before replacing its assets. An interrupted publication leaves a draft; rerun the workflow to complete the update.
 
 Use `git absorb --base main --and-rebase` for staged fixes to existing commits. Get approval before force-pushing published history. Preserve [licenses and attribution](NOTICE). Handy is [reference-only](https://github.com/cjpais/Handy), observed at `29bd2c0d6b4b705df5fd6d2f387e5db5ecc27480`, and is not built or shipped.

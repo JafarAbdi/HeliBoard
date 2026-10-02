@@ -3,8 +3,8 @@ name: Build APK and release
 on:
   workflow_dispatch:
   push:
-    tags:
-      - 'dictation-*'
+    branches:
+      - pixel-voice
 
 permissions:
   contents: read
@@ -104,7 +104,7 @@ jobs:
           if-no-files-found: error
 
   publish:
-    if: github.event_name == 'push'
+    if: github.ref == 'refs/heads/pixel-voice'
     needs: build
     runs-on: ubuntu-24.04
     permissions:
@@ -119,11 +119,15 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
-          RELEASE_TAG: ${{ github.ref_name }}
+          RELEASE_TAG: continuous
+          BUILD_COMMIT: ${{ github.sha }}
         run: |
           cd release
           sha256sum --check HeliBoard.apk.sha256
-          gh release create "$RELEASE_TAG" HeliBoard.apk HeliBoard.apk.sha256 \
-            --verify-tag --draft --title "$RELEASE_TAG" \
-            --notes 'HeliBoard with local English dictation. ARM64 debug APK; install the model separately.'
-          gh release edit "$RELEASE_TAG" --draft=false
+          gh release edit "$RELEASE_TAG" --draft=true
+          gh release upload "$RELEASE_TAG" HeliBoard.apk HeliBoard.apk.sha256 --clobber
+          gh api --method PATCH "repos/$GH_REPO/git/refs/tags/$RELEASE_TAG" \
+            -f sha="$BUILD_COMMIT" -F force=true
+          gh release edit "$RELEASE_TAG" --draft=false --prerelease \
+            --title 'Continuous build' \
+            --notes "HeliBoard with local English dictation. ARM64 debug APK; install the model separately. Source: $BUILD_COMMIT"
