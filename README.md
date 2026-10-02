@@ -1,55 +1,139 @@
-# HeliBoard with local dictation
+# HeliBoard
+HeliBoard is a privacy-conscious and customizable open-source keyboard, based on AOSP / OpenBoard.
+Does not use internet permission, and thus is 100% offline.
 
-This fork combines HeliBoard and local English dictation in one Android app. It uses Parakeet Unified EN 0.6B Q8_0 on the CPU. The standalone recorder provides preview, Stop, Cancel, editable text, and Copy.
+[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/packages/helium314.keyboard/)
+[<img src="https://user-images.githubusercontent.com/663460/26973090-f8fdc986-4d14-11e7-995a-e7c5e79ed925.png" alt="Get APK from GitHub" height="80">](https://github.com/HeliBorg/HeliBoard/releases/latest)
+[<img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png" alt="Get it on IzzyOnDroid" height="80">](https://apt.izzysoft.de/fdroid/index/apk/helium314.keyboard)
 
-There is no cloud inference, saved user audio, waveform display, voice activity detection, GPU inference, or automatic microphone start. The app requires Android 13 or later. It needs no Accessibility grant, app overlay, external voice provider, or keyboard handback.
+## Table of Contents
 
-## Install and set up
+- [Features](#features)
+- [Contributing](#contributing-)
+   * [Reporting Issues](#reporting-issues)
+   * [Translations](#translations)
+   * [To Community](#to-community)
+   * [Code Contribution](CONTRIBUTING.md)
+- [Links](#links)
+- [License](#license)
+- [Credits](#credits)
+  * [Funding](#funding)
 
-Version 4.1, code 4101, matching the upstream base, is available at `dist/pixel-voice.apk`. It uses upstream's debug identity, `helium314.keyboard.debug`, with the original icon and **HeliBoard debug** label:
+# Features
+<ul>
+  <li>Add dictionaries for suggestions and spell check</li>
+  <ul>
+    <li>build your own, or get them  <a href="https://codeberg.org/Helium314/aosp-dictionaries#dictionaries">here</a> (quality may vary)</li>
+    <li>additional dictionaries for emojis or scientific symbols can be used to provide suggestions (similar to "emoji search")</li>
+    <li>note that for Korean layouts, suggestions only work using <a href="https://github.com/openboard-team/openboard/commit/83fca9533c03b9fecc009fc632577226bbd6301f">this dictionary</a>, the tools in the dictionary repository are not able to create working dictionaries</li>
+  </ul>
+  <li>Customize keyboard themes (style, colors and background image)</li>
+  <li>Emoji search (inline and separate, requires <a href="https://codeberg.org/Helium314/aosp-dictionaries">emoji dictionary</a>)</li>
+  <ul>
+    <li>can follow the system's day/night setting on Android 10+ (and on some versions of Android 9)</li>
+    <li>can follow dynamic colors for Android 12+</li>
+  </ul>
+  <li>Customize keyboard <a href="https://github.com/HeliBorg/HeliBoard/blob/main/layouts.md">layouts</a> (only available when disabling <i>use system languages</i>)</li>
+  <li>Customize special layouts, like symbols, number,  or functional key layout</li>
+  <li>Multilingual typing</li>
+  <li>Glide typing (<i>only with closed source library</i> ☹️)</li>
+  <ul>
+    <li>library not included in the app, as there is no compatible open source library available</li>
+    <li>can be extracted from GApps packages ("<i>swypelibs</i>"), or downloaded <a href="https://github.com/erkserkserks/openboard/tree/46fdf2b550035ca69299ce312fa158e7ade36967/app/src/main/jniLibs">here</a> (click on the file and then "raw" or the tiny download button)</li>
+  </ul>
+  <li>Clipboard history</li>
+  <li>One-handed mode</li>
+  <li>Split keyboard</li>
+  <li>Number pad</li>
+  <li>Backup and restore your settings and learned word / history data</li>
+</ul>
 
-```sh
-adb install -r dist/pixel-voice.apk
-```
+For [FAQ](https://github.com/HeliBorg/HeliBoard/wiki/FAQ), [hidden features](https://github.com/HeliBorg/HeliBoard/wiki/9.-Hidden-features) and more information about the app and features, please visit the [wiki](https://github.com/HeliBorg/HeliBoard/wiki)
 
-This is a new install relative to the former Pixel Voice package. Download or import the model again; no settings or model migration is performed. The release HeliBoard package remains independent.
+# Contributing ❤
 
-1. Open HeliBoard debug and download the model or import its Q8_0 GGUF through the system file picker. The app checks its 731357568-byte size and pinned SHA-256 before loading.
-2. Tap **Allow microphone**.
-3. Tap **Enable HeliBoard keyboard** and enable **HeliBoard debug** once in system settings.
-4. Tap **Choose keyboard** and select **HeliBoard debug**.
-5. Use **Open keyboard settings** for the original HeliBoard settings interface. You can optionally export a backup from HeliBoard and import it here. Settings are not copied automatically.
+## Reporting Issues
 
-Model download and import are explicit actions. The model is not bundled in the APK. Acquisition uses a private temporary file and installs it only after verification.
+Whether you encountered a bug, or want to see a new feature in HeliBoard, you can contribute to the project by opening a new issue [here](https://github.com/HeliBorg/HeliBoard/issues). Your help is always welcome!
 
-## Keyboard defaults
+Before opening a new issue, be sure to check the following:
+ - **Does the issue already exist?** Make sure a similar issue has not been reported by browsing [existing issues](https://github.com/HeliBorg/HeliBoard/issues?q=). Please search open and closed issues. In case of feature requests you could also check the [FAQ](https://github.com/HeliBorg/HeliBoard/wiki/FAQ) and [hidden features](https://github.com/HeliBorg/HeliBoard/wiki/9.-Hidden-features).
+ - **Is the issue still relevant?** Make sure your issue is not already fixed in the latest version of HeliBoard.
+ - **Is it a single topic?** If you want to suggest multiple things, open multiple issues.
+ - **Did you use the issue template?** It is important to make life of our kind contributors easier by avoiding issues that miss key information to their resolution.
+ - **Is it written by a human?** Do not use LLMs or similar to generate issues. Having LLMs help with translation or similar is acceptable, but must be disclosed. See also [AI_USAGE.md](AI_USAGE.md)
+Note that issues that that ignore part of the issue template will likely get treated with very low priority, as often they are needlessly hard to read or understand (e.g. huge screenshots, not providing a proper description, or addressing multiple topics). Blatant violation of the guidelines may result in the issue getting closed.
 
-English US and standard Arabic are enabled, with English selected initially. Voice input is pinned on the collapsed toolbar. The globe key switches between the keyboard languages.
+If you're interested, you can read the following useful text about effective bug reporting (a bit longer read): https://www.chiark.greenend.org.uk/~sgtatham/bugs.html
 
-Saved preferences override these defaults. Arabic is available for typing; dictation remains English-only.
+## Translations
+Translations can be added using [Weblate](https://translate.codeberg.org/projects/heliboard/). You will need an account to update translations and add languages. Add the language you want to translate to in Languages -> Manage translated languages in the top menu bar.
+Updating translations in a PR will not be accepted, as it may cause conflicts with Weblate translations.
 
-## Dictate in a text field
+Some notes on translations
+* when translating metadata, translating the changelogs is rather useless. It's available as it was requested by translators.
+* the `hidden_features_message` is horrible to translate with Weblate, and serves little benefit as it's just a copy of what's already in the wiki: https://github.com/HeliBorg/HeliBoard/wiki/9.-Hidden-features. It's been made available in the app on user request/contribution.
 
-1. Tap the keyboard's microphone key. Expand the toolbar if needed.
-2. Wait for **Listening** before speaking. Letter keys remain visible and usable, with controls above them.
-3. Recognized words appear directly in the field and can change as recognition improves. No separate preview pane.
-4. Tap **Stop** to finalize the current dictation once.
-5. Tap **Cancel** to discard the safely owned dictation draft, including during processing. Any selected text it replaced is restored.
+## To Community
+There is the [discussions on GitHub](https://github.com/HeliBorg/HeliBoard/discussions), or if you prefer a more open network there is [Lemmy](https://lemmy.world/c/Heliboard).
+You can share your themes, layouts and dictionaries with other people:
+* Themes can be saved and loaded using the menu on top-right in the _adjust colors_ screen
+  * you can share custom colors in a separate [discussion section](https://github.com/HeliBorg/HeliBoard/discussions/categories/custom-colors)
+  * there are theme collections available at [Star-Trowa/heliboard-themes](https://github.com/Star-Trowa/heliboard-themes) and [PickleHik3/droid-tings](https://github.com/PickleHik3/droid-tings)
+* Custom keyboard layouts are text files whose content you can edit, copy and share
+  * this applies to main keyboard layouts and to special layouts adjustable in advanced settings
+  * see [layouts.md](layouts.md) for details
+  * you can share custom layouts in a separate [discussion section](https://github.com/HeliBorg/HeliBoard/discussions/categories/custom-layout)
+  * [Roccobot's Layout Maker](https://roccobot.github.io/HeliBoard-RLM/) is a browser-based editor for json layout files
+* Creating dictionaries is a little more work
+  * first you will need a wordlist, as described [here](https://codeberg.org/Helium314/aosp-dictionaries/src/branch/main/wordlists/sample.combined) and in the repository readme
+  * the you need to compile the dictionary using [external tools](https://github.com/remi0s/aosp-dictionary-tools)
+  * the resulting file (and ideally the wordlist too) can be shared with other users
+  * note that there will not be any further dictionaries added to this app, but you can add dictionaries to the [dictionaries repository](https://codeberg.org/Helium314/aosp-dictionaries)
 
-Dictation preserves the pre-existing composing word, adds no automatic space, and never appends the final transcript a second time. Typing stops dictation, keeps the visible words, and performs the typed edit. Moving the caret, changing fields, restarting or hiding the editor, locking the screen, losing microphone permission, or service teardown stops capture and keeps visible text. Once editor ownership is lost, Cancel cannot safely remove that text.
+## Code Contribution
+See [Contribution Guidelines](CONTRIBUTING.md)
 
-Password fields and fields that opt out of microphone input do not accept dictation. Missing model or permission opens setup without starting capture. Finish setup, return to your app, and tap the microphone again.
+# Links
+* Info
+  * [Wiki](https://github.com/HeliBorg/HeliBoard/wiki), including FAQ, help on customizing layouts, and gesture data gathering
+  * [Layout documentation](layouts.md) (more technical info regarding layout customization)
+  * [For creating custom dictionaries](https://codeberg.org/Helium314/aosp-dictionaries#wordlist-information) (see also top of the linked readme)
+* Community
+  * [Lemmy](https://lemmy.world/c/Heliboard)
+  * [Reddit](https://www.reddit.com/r/HeliBoard)
+  * GitHub [discussions](https://github.com/HeliBorg/HeliBoard/discussions)
+* Other
+  * [Translations](https://translate.codeberg.org/projects/heliboard/)
+  * [Dictionaries](https://codeberg.org/Helium314/aosp-dictionaries)
+  * [k3lp](https://codeberg.org/k3lp/k3lp) is a WIP library for keyboard layout parsing that will be implemented in HeliBoard when ready (created by [FlorisBoard](https://github.com/florisboard/florisboard/) maintainers)
+  * [swipe-o-scope](https://codeberg.org/eclexic/swipe-o-scope) for visualizing gesture data as created when using gesture data gathering
 
-**Check insertion** means the editor outcome is uncertain. Use **Copy**, **Edit**, or **Review last keyboard dictation** to recover the transcript. The app never automatically repeats an uncertain write.
+# License
 
-## Use the standalone recorder
+HeliBoard (as a fork of OpenBoard) is licensed under GNU General Public License v3.0.
 
-Tap **Record**, then **Stop** to finish the transcript or **Cancel** to discard the recording result. Edit the text and tap **Copy**. Leaving the recorder stops capture and finishes queued audio. The recorder shares the keyboard's model and CPU engine.
+ > Permissions of this strong copyleft license are conditioned on making available complete source code of licensed works and modifications, which include larger works using a licensed work, under the same license. Copyright and license notices must be preserved. Contributors provide an express grant of patent rights.
 
-## Verification and limits
+See repo's [LICENSE](/LICENSE) file.
 
-API 35 emulator checks cover live native recognition in Android and Chromium fields before Stop, finalization without duplication, Cancel, composing words, selections, usable typing keys, setup safety, microphone capture and teardown, and retained model storage. The suite includes 80 JVM cases, 13 prerecorded native keyboard cases, and eight scripted editor-protocol cases. Scripted revisions test editing mechanics, not recognition quality.
+Since the app is based on Apache 2.0 licensed AOSP Keyboard, an [Apache 2.0](LICENSE-Apache-2.0) license file is provided.
+The icon is licensed under [Creative Commons BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). A [license file](LICENSE-CC-BY-SA-4.0) is also included.
 
-The model remains warm until process death. There is no recording cap or idle unload timer. Audio buffers grow with recording length. Sustained performance, long-session memory, heat, battery use, speech quality, and physical Pixel 10 behavior on GrapheneOS remain unverified for this integrated fork. Prerecorded test audio does not qualify microphone capture.
+# Credits
+- Icon by [Fabian OvrWrt](https://github.com/FabianOvrWrt) with contributions from [The Eclectic Dyslexic](https://github.com/the-eclectic-dyslexic)
+- [OpenBoard](https://github.com/openboard-team/openboard)
+- [AOSP Keyboard](https://android.googlesource.com/platform/packages/inputmethods/LatinIME/)
+- [LineageOS](https://review.lineageos.org/admin/repos/LineageOS/android_packages_inputmethods_LatinIME)
+- [Simple Keyboard](https://github.com/rkkr/simple-keyboard)
+- [Indic Keyboard](https://gitlab.com/indicproject/indic-keyboard)
+- [FlorisBoard](https://github.com/florisboard/florisboard/)
+- Our [contributors](https://github.com/HeliBorg/HeliBoard/graphs/contributors)
 
-Third-party attribution and model terms are in [NOTICE](NOTICE). Fork commits, source provenance, and update procedures are in [EXTERNAL_SOURCES.md](EXTERNAL_SOURCES.md). Build ownership, architecture, and reproducible checks are in [AGENTS.md](AGENTS.md).
+## Funding
+
+This project is funded through [NGI Mobifree Fund](https://nlnet.nl/mobifree), a fund established by [NLnet](https://nlnet.nl) with financial support from the European Commission's [Next Generation Internet](https://ngi.eu) program. Learn more at the [NLnet project page](https://nlnet.nl/project/GestureTyping).
+
+[<img src="https://nlnet.nl/logo/banner.png" alt="NLnet foundation logo" width="20%" />](https://nlnet.nl)
+
+Further the project benefits from donations provided by many users (thank you all!).

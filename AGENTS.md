@@ -61,6 +61,10 @@ Keyboard instrumentation uses an owned API 35 emulator, default `emulator-5556`,
 
 The checker requires a built-in system IME and runs `ime reset` before instrumentation to avoid force-stopping the selected target keyboard at launch. For keyboard modes, the runner enables and selects the integrated IME after fixture initialization. The checker restores the original enabled IME list, default IME, selected subtype, and hardware-keyboard visibility setting on exit. Accessibility settings stay unchanged. Microphone grant or revocation affects only the owned app. Native fixtures establish literal delivery, not production microphone eligibility. `keyboard-microphone` checks production AudioRecord start and Cancel, not nonsilenced speech. Separate noninstrumented capture evidence must establish visible keys, AudioRecord configuration, nonsilenced capture, AppOps, foreground type, and Stop/Cancel teardown.
 
+## Release workflow
+
+`.github/workflows/build-debug-apk.yml` runs the existing `scripts/check.sh` ARM64 qualification on manual dispatch and `dictation-*` tag pushes. Its build job has read-only repository permission, pinned action revisions, the pinned engine submodule, and an existing signing key supplied through a repository secret. Only the tag-triggered publication job gets `contents: write`; it downloads the checked APK/checksum artifact and publishes after both assets are uploaded. No key or model is included in the artifact. This does not qualify device behavior or the other inherited upstream workflow.
+
 ## Work boundaries
 
 The parent owns `.audit`, builds, native qualification, toolchains, model artifacts, devices, and `dist`. Source workers use disjoint files and do not run builds or instrumentation without ownership transfer. Preserve prior work and archived artifacts. Python commands use `uv run` and require the applicable Python skills before edits.
