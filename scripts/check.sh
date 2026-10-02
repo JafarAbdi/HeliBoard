@@ -14,7 +14,7 @@ export ANDROID_HOME="$TOOLCHAIN/android-sdk"
 export ANDROID_SDK_ROOT="$ANDROID_HOME"
 export PATH="$JAVA_HOME/bin:$ANDROID_HOME/platform-tools:$PATH"
 
-PIXEL_VOICE_ABI=arm64-v8a "$ROOT/scripts/build.sh"
+PIXEL_VOICE_ABI=arm64-v8a PIXEL_VOICE_BUILD_TYPE=release "$ROOT/scripts/build.sh"
 
 actual_size=$(stat -Lc %s "$MODEL")
 actual_sha=$(sha256sum "$MODEL" | awk '{print $1}')
@@ -23,14 +23,14 @@ actual_sha=$(sha256sum "$MODEL" | awk '{print $1}')
 
 "$ROOT/build/host/pixel_voice_smoke" "$MODEL" "$ROOT/third_party/transcribe.cpp/samples/jfk.wav"
 "$ROOT/gradlew" --no-daemon --max-workers=2 -Dorg.gradle.parallel=false -p "$ROOT" \
-    -PpixelVoiceAbi=arm64-v8a --rerun-tasks :dictation:testDebugUnitTest
+    -PpixelVoiceAbi=arm64-v8a --rerun-tasks :dictation:testReleaseUnitTest
 unit_tests=$(awk '/<testsuite / { for (i = 1; i <= NF; i++) if ($i ~ /^tests="/) { gsub(/[^0-9]/, "", $i); count += $i } } END { print count+0 }' \
-    "$ROOT"/dictation/build/test-results/testDebugUnitTest/TEST-*.xml)
+    "$ROOT"/dictation/build/test-results/testReleaseUnitTest/TEST-*.xml)
 [[ "$unit_tests" == 80 ]] || { echo "Expected 80 dictation unit tests, got $unit_tests" >&2; exit 1; }
 "$ROOT/gradlew" --no-daemon --max-workers=2 -Dorg.gradle.parallel=false -p "$ROOT" \
-    -PpixelVoiceAbi=arm64-v8a :app:lintDebug :dictation:lintDebug
+    -PpixelVoiceAbi=arm64-v8a :app:lintRelease :dictation:lintRelease
 
-APK="$ROOT/app/build/outputs/pixelVoice/arm64-v8a/pixel-voice-arm64-v8a-debug.apk"
+APK="$ROOT/app/build/outputs/pixelVoice/arm64-v8a/pixel-voice-arm64-v8a-release.apk"
 AAPT2="$ANDROID_HOME/build-tools/35.0.0/aapt2"
 ZIPALIGN="$ANDROID_HOME/build-tools/35.0.0/zipalign"
 APKSIGNER="$ANDROID_HOME/build-tools/35.0.0/apksigner"
@@ -41,7 +41,7 @@ unzip -Z1 "$APK" > "$tmp/entries"
 
 permissions=$("$AAPT2" dump permissions "$APK")
 actual_permissions=$(sed -n "s/^uses-permission[^:]*: name='\([^']*\)'.*$/\1/p" <<<"$permissions" | sort)
-expected_permissions=$'android.permission.FOREGROUND_SERVICE\nandroid.permission.FOREGROUND_SERVICE_MICROPHONE\nandroid.permission.INTERNET\nandroid.permission.READ_CONTACTS\nandroid.permission.READ_USER_DICTIONARY\nandroid.permission.RECEIVE_BOOT_COMPLETED\nandroid.permission.RECORD_AUDIO\nandroid.permission.VIBRATE\nandroid.permission.WRITE_USER_DICTIONARY\nhelium314.keyboard.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'
+expected_permissions=$'android.permission.FOREGROUND_SERVICE\nandroid.permission.FOREGROUND_SERVICE_MICROPHONE\nandroid.permission.INTERNET\nandroid.permission.READ_CONTACTS\nandroid.permission.READ_USER_DICTIONARY\nandroid.permission.RECEIVE_BOOT_COMPLETED\nandroid.permission.RECORD_AUDIO\nandroid.permission.VIBRATE\nandroid.permission.WRITE_USER_DICTIONARY\nhelium314.keyboard.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'
 if [[ "$actual_permissions" != "$expected_permissions" ]]; then
     echo "Unexpected APK permission set:" >&2
     printf '%s\n' "$actual_permissions" >&2
@@ -49,7 +49,12 @@ if [[ "$actual_permissions" != "$expected_permissions" ]]; then
 fi
 
 badging=$("$AAPT2" dump badging "$APK")
-grep -Fq "package: name='helium314.keyboard.debug' versionCode='4101' versionName='4.1'" <<<"$badging"
+grep -Fq "package: name='helium314.keyboard' versionCode='4101' versionName='4.1'" <<<"$badging"
+grep -Fxq "application-label:'HeliBoard'" <<<"$badging"
+if grep -q '^application-debuggable' <<<"$badging"; then
+    echo "The production APK must not be debuggable" >&2
+    exit 1
+fi
 "$AAPT2" dump xmltree "$APK" --file AndroidManifest.xml > "$tmp/manifest"
 awk '
     /E: / {
@@ -58,7 +63,7 @@ awk '
     }
     in_permission && /:name\(/ {
         split($0, parts, "\"")
-        if (parts[2] == "helium314.keyboard.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION") ++names
+        if (parts[2] == "helium314.keyboard.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION") ++names
     }
     in_permission && /:protectionLevel\(/ {
         if ($0 ~ /=0x00000002[[:space:]]*$/) ++signatures
@@ -124,5 +129,5 @@ for library in libandroidx.graphics.path.so libjni_latinime.so libpixelvoice_jni
     done <<<"$load_alignments"
 done
 
-echo "PASS CPU APK signature, version, nine platform permissions plus app-private signature permission, keyboard assets, model/audio exclusion, rebuilt native libraries, native CPU behavior, no Vulkan linkage, ZIP alignment, and all three ELF alignments"
+echo "PASS CPU release APK signature, version, HeliBoard label, non-debuggable application, nine platform permissions plus app-private signature permission, keyboard assets, model/audio exclusion, rebuilt native libraries, native CPU behavior, no Vulkan linkage, ZIP alignment, and all three ELF alignments"
 echo "APK: $APK"

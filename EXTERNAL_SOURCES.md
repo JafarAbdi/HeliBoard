@@ -42,12 +42,12 @@ export PIXEL_VOICE_MODEL=/path/to/parakeet-unified-en-0.6b-Q8_0.gguf
 scripts/check.sh
 ```
 
-This builds and checks the ARM64 APK, signer, native inference, unit tests, lint, permissions, bundled assets, and alignment. Keep the existing signing key and checks. Confirm any changed permission, native-library, or lint-baseline expectation against the actual APK.
+This builds and checks the ARM64 release APK, signer, native inference, release unit tests and lint, permissions, bundled assets, and alignment. `scripts/build.sh` defaults to release: `pixel-voice-<abi>-release.apk`, package `helium314.keyboard`, label `HeliBoard`, v4.1/code 4101, minified and non-debuggable. Keep the existing signing key and checks. Confirm any changed permission, native-library, or lint-baseline expectation against the actual APK.
 
-For editor checks, use an owned API 35 emulator. Build and install the x86_64 APK and verified model before running the fixtures.
+For editor checks, use an owned API 35 emulator. Explicitly build and install the x86_64 debug APK (`helium314.keyboard.debug`) and verified model before running the debug instrumentation fixtures; these do not instrument release.
 
 ```sh
-PIXEL_VOICE_ABI=x86_64 scripts/build.sh
+PIXEL_VOICE_ABI=x86_64 PIXEL_VOICE_BUILD_TYPE=debug scripts/build.sh
 ./gradlew -PpixelVoiceAbi=x86_64 :app:assembleDebugAndroidTest
 export PIXEL_VOICE_DEVICE=emulator-5556
 for mode in keyboard-native keyboard-web-native keyboard-compose-protocol keyboard-web-compose-protocol keyboard-defaults; do
@@ -59,7 +59,7 @@ The APKs are under `app/build/outputs/pixelVoice/<abi>/`. Emulator results do no
 
 ## Publish a release
 
-Keep `ANDROID_DEBUG_KEYSTORE_BASE64` in the fork's Actions secrets. It contains the existing `~/.android/debug.keystore`, encoded as base64. The workflow checks its pinned signer and uploads only the APK and checksum. Pushes and manual dispatch on `pixel-voice` build, check, and update the existing `continuous` prerelease. Native compilation and Gradle task caches are enabled.
+Keep `ANDROID_DEBUG_KEYSTORE_BASE64` in the fork's Actions secrets. It contains the existing `~/.android/debug.keystore`, encoded as base64, reused for release signing without generating a new key. The workflow checks its pinned signer and publishes the ARM64 release APK as `HeliBoard.apk` with its checksum. Pushes and manual dispatch on `pixel-voice` build, check, and update the existing `continuous` prerelease. Native compilation and Gradle task caches are enabled.
 
 Use the permanent [APK download](https://github.com/JafarAbdi/HeliBoard/releases/download/continuous/HeliBoard.apk). The single `continuous` tag moves to the verified build commit; do not create a tag per build. Publication drafts the release before replacing its assets. An interrupted publication leaves a draft; rerun the workflow to complete the update.
 

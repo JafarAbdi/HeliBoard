@@ -37,6 +37,7 @@ android {
 
     buildTypes {
         release {
+            signingConfig = signingConfigs.getByName("debug")
             isMinifyEnabled = true
             isShrinkResources = false
             isDebuggable = false
@@ -115,6 +116,13 @@ android {
         abortOnError = true
         baseline = file("lint-baseline.xml")
     }
+}
+
+tasks.register<Copy>("stageReleaseApk") {
+    dependsOn("assembleRelease")
+    from(layout.buildDirectory.file("outputs/apk/release/app-release.apk"))
+    into(layout.buildDirectory.dir("outputs/pixelVoice/$pixelVoiceAbi"))
+    rename { "pixel-voice-$pixelVoiceAbi-release.apk" }
 }
 
 tasks.register<Copy>("stageDebugApk") {

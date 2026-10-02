@@ -92,7 +92,7 @@ jobs:
       - name: Prepare the release assets
         run: |
           mkdir release
-          cp app/build/outputs/pixelVoice/arm64-v8a/pixel-voice-arm64-v8a-debug.apk \
+          cp app/build/outputs/pixelVoice/arm64-v8a/pixel-voice-arm64-v8a-release.apk \
             release/HeliBoard.apk
           cd release
           sha256sum HeliBoard.apk > HeliBoard.apk.sha256
@@ -130,4 +130,4 @@ jobs:
             -f sha="$BUILD_COMMIT" -F force=true
           gh release edit "$RELEASE_TAG" --draft=false --prerelease \
             --title 'Continuous build' \
-            --notes "HeliBoard with local English dictation. ARM64 debug APK; install the model separately. Source: $BUILD_COMMIT"
+            --notes "HeliBoard with local English dictation. ARM64 release APK; install the model separately. Source: $BUILD_COMMIT"
