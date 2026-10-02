@@ -29,6 +29,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.inputmethod.CompletionInfo;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputConnection;
+import android.view.inputmethod.SurroundingText;
 import android.view.inputmethod.InlineSuggestion;
 import android.view.inputmethod.InlineSuggestionsRequest;
 import android.view.inputmethod.InlineSuggestionsResponse;
@@ -36,6 +38,8 @@ import android.view.inputmethod.InputMethodSubtype;
 
 import helium314.keyboard.accessibility.AccessibilityUtils;
 import helium314.keyboard.compat.ConfigurationCompatKt;
+import dev.juruc.pixelvoice.InlineDictation;
+import dev.juruc.pixelvoice.KeyboardDictation;
 import helium314.keyboard.compat.EditorInfoCompatUtils;
 import helium314.keyboard.compat.ImeCompat;
 import helium314.keyboard.event.HapticEvent;
@@ -140,6 +144,36 @@ public class LatinIME extends InputMethodService implements
     private View mInputView;
     private InsetsOutlineProvider mInsetsUpdater;
     private SuggestionStripView mSuggestionStripView;
+    private DictationControlsView mDictationControls;
+    private KeyboardDictation mDictation;
+
+    private final KeyboardDictation.Host mDictationHost = new KeyboardDictation.Host() {
+        @Override
+        @RequiresApi(Build.VERSION_CODES.S)
+        public SurroundingText surroundingText(final int before, final int after) {
+            final InputConnection connection = getCurrentInputConnection();
+            return connection == null ? null : connection.getSurroundingText(before, after, 0);
+        }
+
+        @Override
+        public InlineDictation.DispatchOutcome apply(final InlineDictation.Edit edit) {
+            final InlineDictation.DispatchOutcome outcome = mInputLogic.applyDictationEdit(edit);
+            mKeyboardSwitcher.requestUpdatingShiftState(getCurrentAutoCapsState(), getCurrentRecapitalizeState());
+            return outcome;
+        }
+
+        @Override
+        public void render(final KeyboardDictation.Controls controls) {
+            if (mDictationControls != null) {
+                mDictationControls.render(controls);
+            }
+        }
+
+        @Override
+        public boolean controlsVisible() {
+            return mDictationControls != null && mDictationControls.isVisibleOnScreen();
+        }
+    };
 
     private RichInputMethodManager mRichImm;
     final KeyboardSwitcher mKeyboardSwitcher;
@@ -547,6 +581,7 @@ public class LatinIME extends InputMethodService implements
         mDisplayContext = KtxKt.getDisplayContext(this);
         KeyboardSwitcher.init(this);
         super.onCreate();
+        mDictation = new KeyboardDictation(this, mDictationHost);
 
         loadSettings();
         mClipboardHistoryManager.onCreate();
@@ -692,6 +727,7 @@ public class LatinIME extends InputMethodService implements
 
     @Override
     public void onDestroy() {
+        mDictation.close();
         mClipboardHistoryManager.onDestroy();
         mDictionaryFacilitator.closeDictionaries();
         mSettings.onDestroy();
@@ -714,6 +750,7 @@ public class LatinIME extends InputMethodService implements
 
     @Override
     public void onConfigurationChanged(final Configuration conf) {
+        if (mDictation != null) mDictation.editorSurfaceChanged();
         SettingsValues settingsValues = mSettings.getCurrent();
         Log.i(TAG, "onConfigurationChanged");
         SubtypeSettings.INSTANCE.reloadSystemLocales(this);
@@ -760,6 +797,8 @@ public class LatinIME extends InputMethodService implements
         mInputView = view;
         mInsetsUpdater = ViewOutlineProviderUtilsKt.setInsetsOutlineProvider(view);
         KtxKt.updateSoftInputWindowLayoutParameters(this, mInputView);
+        mDictationControls = view.findViewById(R.id.dictation_controls);
+        mDictationControls.setDictation(mDictation);
         updateSuggestionStripView(view);
     }
 
@@ -779,17 +818,22 @@ public class LatinIME extends InputMethodService implements
 
     @Override
     public void onStartInput(final EditorInfo editorInfo, final boolean restarting) {
+        // Dictation is invalidated here because mHandler may defer the internal callbacks.
+        mDictation.editorChanged();
+        mDictation.editorStarted(editorInfo.initialSelStart, editorInfo.initialSelEnd);
         mHandler.onStartInput(editorInfo, restarting);
     }
 
     @Override
     public void onStartInputView(final EditorInfo editorInfo, final boolean restarting) {
+        mDictation.editorSurfaceChanged();
         mHandler.onStartInputView(editorInfo, restarting);
         mStatsUtilsManager.onStartInputView();
     }
 
     @Override
     public void onFinishInputView(final boolean finishingInput) {
+        mDictation.editorChanged();
         StatsUtils.onFinishInputView();
         mHandler.onFinishInputView(finishingInput);
         mStatsUtilsManager.onFinishInputView();
@@ -799,8 +843,15 @@ public class LatinIME extends InputMethodService implements
 
     @Override
     public void onFinishInput() {
+        mDictation.editorChanged();
         mHandler.onFinishInput();
         BackgroundGatheringCache.saveOrClear(this);
+    }
+
+    @Override
+    public void onUnbindInput() {
+        mDictation.editorChanged();
+        super.onUnbindInput();
     }
 
     @Override
@@ -818,6 +869,7 @@ public class LatinIME extends InputMethodService implements
             return;
         }
 
+        if (mDictation != null) mDictation.interrupt();
         mSubtypeState.onSubtypeChanged(oldSubtype, subtype);
         StatsUtils.onSubtypeChanged(oldSubtype, subtype);
         mRichImm.onSubtypeChanged(subtype);
@@ -1012,6 +1064,7 @@ public class LatinIME extends InputMethodService implements
 
     @Override
     public void onWindowHidden() {
+        mDictation.editorChanged();
         super.onWindowHidden();
         Log.i(TAG, "onWindowHidden");
         final MainKeyboardView mainKeyboardView = mKeyboardSwitcher.getMainKeyboardView();
@@ -1056,11 +1109,15 @@ public class LatinIME extends InputMethodService implements
                                   final int composingSpanStart, final int composingSpanEnd) {
         super.onUpdateSelection(oldSelStart, oldSelEnd, newSelStart, newSelEnd,
                 composingSpanStart, composingSpanEnd);
+        final boolean dictationUpdate = mDictation.selectionChanged(newSelStart, newSelEnd,
+                composingSpanStart, composingSpanEnd);
         if (DebugFlags.DEBUG_ENABLED) {
             Log.i(TAG, "onUpdateSelection: oss=" + oldSelStart + ", ose=" + oldSelEnd
                     + ", nss=" + newSelStart + ", nse=" + newSelEnd
                     + ", cs=" + composingSpanStart + ", ce=" + composingSpanEnd);
         }
+
+        if (dictationUpdate) return;
 
         // This call happens whether our view is displayed or not, but if it's not then we should
         // not attempt recorrection. This is true even with a hardware keyboard connected: if the
@@ -1197,7 +1254,8 @@ public class LatinIME extends InputMethodService implements
             mInsetsUpdater.setInsets(outInsets);
             return;
         }
-        final int stripHeight = mKeyboardSwitcher.isShowingStripContainer() ? mKeyboardSwitcher.getStripContainer().getHeight() : 0;
+        final int stripHeight = (mKeyboardSwitcher.isShowingStripContainer() ? mKeyboardSwitcher.getStripContainer().getHeight() : 0)
+                + (mDictationControls != null && mDictationControls.isShown() ? mDictationControls.getHeight() : 0);
         int visibleTopY = inputHeight - visibleKeyboardView.getHeight() - stripHeight;
         if (Settings.getValues().mIsFloatingKeyboard)
             visibleTopY = getResources().getDisplayMetrics().heightPixels;
@@ -1401,6 +1459,15 @@ public class LatinIME extends InputMethodService implements
         mSubtypeState.switchSubtype(mRichImm);
     }
 
+    public boolean ownsDictationComposition() {
+        return mDictation != null && mDictation.ownsComposition();
+    }
+
+    /** Keeps the visible draft before an edit that does not pass through {@link #onEvent}. */
+    public void interruptDictation() {
+        mDictation.interrupt();
+    }
+
     // Implementation of {@link SuggestionStripView.Listener}.
     @Override
     public void onCodeInput(final int codePoint, final int x, final int y, final boolean isKeyRepeat) {
@@ -1411,8 +1478,13 @@ public class LatinIME extends InputMethodService implements
     // completely replace #onCodeInput.
     public void onEvent(@NonNull final Event event) {
         if (KeyCode.VOICE_INPUT == event.getKeyCode()) {
-            mRichImm.switchToShortcutIme(this);
+            final EditorInfo editorInfo = getCurrentInputEditorInfo();
+            if (editorInfo != null) {
+                mDictation.start(editorInfo.inputType, editorInfo.privateImeOptions);
+            }
+            return;
         }
+        mDictation.interrupt();
         final InputTransaction completeInputTransaction =
                 mInputLogic.onCodeInput(mSettings.getCurrent(), event,
                         mKeyboardSwitcher.getKeyboardCapsMode(),
@@ -1423,6 +1495,7 @@ public class LatinIME extends InputMethodService implements
 
     public void onTextInput(@Nullable String rawText) {
         if (rawText == null) return;
+        mDictation.interrupt();
         // TODO: have the keyboard pass the correct key code when we need it.
         Event event = Event.createSoftwareTextEvent(rawText, KeyCode.MULTIPLE_CODE_POINTS, null);
         InputTransaction completeInputTransaction = mInputLogic.onTextInput(mSettings.getCurrent(),
@@ -1433,6 +1506,7 @@ public class LatinIME extends InputMethodService implements
     }
 
     public void onStartBatchInput() {
+        mDictation.interrupt();
         mInputLogic.onStartBatchInput(mSettings.getCurrent(), mKeyboardSwitcher, mHandler);
         mGestureConsumer.onGestureStarted(mRichImm.getCurrentSubtypeLocale(), mKeyboardSwitcher.getKeyboard());
     }
@@ -1535,6 +1609,7 @@ public class LatinIME extends InputMethodService implements
     // interface
     @Override
     public void pickSuggestionManually(final SuggestedWordInfo suggestionInfo) {
+        mDictation.interrupt();
         final InputTransaction completeInputTransaction = mInputLogic.onPickSuggestionManually(
                 mSettings.getCurrent(), suggestionInfo,
                 mKeyboardSwitcher.getKeyboardCapsMode(),
@@ -1675,6 +1750,10 @@ public class LatinIME extends InputMethodService implements
     // Hooks for hardware keyboard
     @Override
     public boolean onKeyDown(final int keyCode, final KeyEvent keyEvent) {
+        // System keys such as volume and back do not edit the field.
+        if (!keyEvent.isSystem()) {
+            mDictation.interrupt();
+        }
         if (mKeyboardActionListener.onKeyDown(keyCode, keyEvent))
             return true;
         return super.onKeyDown(keyCode, keyEvent);
@@ -1791,6 +1870,7 @@ public class LatinIME extends InputMethodService implements
         SettingsValues settingsValues = mSettings.getCurrent();
         p.println(settingsValues.dump());
         p.println(mDictionaryFacilitator.dump(this));
+        mDictation.dump(fout);
     }
 
     // slightly modified from Simple Keyboard: https://github.com/rkkr/simple-keyboard/blob/master/app/src/main/java/rkr/simplekeyboard/inputmethod/latin/LatinIME.java

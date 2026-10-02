@@ -25,6 +25,7 @@ import android.view.inputmethod.EditorInfo;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import dev.juruc.pixelvoice.InlineDictation;
 import helium314.keyboard.compat.AppWorkarounds;
 import helium314.keyboard.event.Event;
 import helium314.keyboard.event.InputTransaction;
@@ -274,6 +275,22 @@ public final class InputLogic {
         inputTransaction.setDidAffectContents();
         inputTransaction.requireShiftUpdate(InputTransaction.SHIFT_UPDATE_NOW);
         return inputTransaction;
+    }
+
+    public InlineDictation.DispatchOutcome applyDictationEdit(final InlineDictation.Edit edit) {
+        mLatinIME.mHandler.cancelResumeSuggestions();
+        mLatinIME.mHandler.cancelUpdateSuggestionStrip();
+        mInputLogicHandler.reset();
+        resetComposingState(true /* alsoResetLastComposedWord */);
+        mSpaceState = SpaceState.NONE;
+        // Backspace must not treat the transcript as one multi-character key insertion.
+        mEnteredText = null;
+        mWordBeingCorrectedByCursor = null;
+        mJustRevertedACommit = false;
+        mIsAutoCorrectionIndicatorOn = false;
+        cancelDoubleSpacePeriodCountdown();
+        setInlineEmojiSearchAction(false);
+        return mConnection.applyDictationEdit(edit);
     }
 
     /**
@@ -645,6 +662,7 @@ public final class InputLogic {
     // TODO: on the long term, this method should become private, but it will be difficult.
     // Especially, how do we deal with InputMethodService.onDisplayCompletions?
     public void setSuggestedWords(final SuggestedWords suggestedWords) {
+        if (mLatinIME.ownsDictationComposition()) return;
         if (!suggestedWords.isEmpty()) {
             final SuggestedWordInfo suggestedWordInfo;
             if (suggestedWords.mWillAutoCorrect) {
@@ -1747,6 +1765,7 @@ public final class InputLogic {
     }
 
     public void performUpdateSuggestionStripSync(final SettingsValues settingsValues, final int inputStyle) {
+        if (mLatinIME.ownsDictationComposition()) return;
         long startTimeMillis = 0;
         if (DebugFlags.DEBUG_ENABLED) {
             startTimeMillis = SystemClock.elapsedRealtime();
@@ -1815,6 +1834,7 @@ public final class InputLogic {
     public void restartSuggestionsOnWordTouchedByCursor(final SettingsValues settingsValues,
             // TODO: remove this argument, put it into settingsValues
             final String currentKeyboardScript) {
+        if (mLatinIME.ownsDictationComposition()) return;
         // HACK: We may want to special-case some apps that exhibit bad behavior in case of
         // recorrection. This is a temporary, stopgap measure that will be removed later.
         // TODO: remove this.
@@ -2531,6 +2551,7 @@ public final class InputLogic {
      */
     public boolean retryResetCachesAndReturnSuccess(final boolean tryResumeSuggestions,
             final int remainingTries, final LatinIME.UIHandler handler) {
+        if (mLatinIME.ownsDictationComposition()) return true;
         final boolean shouldFinishComposition = mConnection.hasSelection()
                 || !mConnection.isCursorPositionKnown();
         if (!mConnection.resetCachesUponCursorMoveAndReturnSuccess(

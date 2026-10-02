@@ -155,6 +155,7 @@ class KeyboardActionListenerImpl(private val latinIME: LatinIME, private val inp
     override fun onTextInput(text: String?) = latinIME.onTextInput(text)
 
     override fun onContent(content: InputContentInfoCompat) {
+        latinIME.interruptDictation()
         val editorInfo = latinIME.currentInputEditorInfo
         val editorMimeTypes = EditorInfoCompat.getContentMimeTypes(editorInfo)
         if (editorMimeTypes.any { content.description.hasMimeType(it) }) {
@@ -253,6 +254,7 @@ class KeyboardActionListenerImpl(private val latinIME: LatinIME, private val inp
     }
 
     override fun onMoveDeletePointer(steps: Int) {
+        latinIME.interruptDictation()
         inputLogic.finishInput()
         val end = connection.expectedSelectionEnd
         val actualSteps = actualSteps(steps)
@@ -321,6 +323,7 @@ class KeyboardActionListenerImpl(private val latinIME: LatinIME, private val inp
 
     private fun onMoveCursorHorizontally(rawSteps: Int): Boolean {
         if (rawSteps == 0) return false
+        latinIME.interruptDictation()
         // for RTL languages we want to invert pointer movement
         val rtl = RichInputMethodManager.getInstance().currentSubtype.isRtlSubtype
         val steps = if (rtl) -rawSteps else rawSteps

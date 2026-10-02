@@ -1,2 +1,3 @@
+rootProject.name = 'PixelVoice'
 include ':app'
-include ':tools:make-emoji-keys'
+include ':dictation'

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: GPL-3.0-only -->
+<helium314.keyboard.latin.DictationControlsView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:focusable="false"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingStart="12dp"
+    android:paddingEnd="4dp"
+    android:visibility="gone">
+
+    <TextView
+        android:id="@+id/dictation_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:accessibilityLiveRegion="polite"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/dictation_stop"
+        style="@style/DictationControl"
+        android:text="@string/stop" />
+
+    <TextView
+        android:id="@+id/dictation_copy"
+        style="@style/DictationControl"
+        android:text="@string/copy" />
+
+    <TextView
+        android:id="@+id/dictation_edit"
+        style="@style/DictationControl"
+        android:text="@string/inline_edit" />
+
+    <TextView
+        android:id="@+id/dictation_setup"
+        style="@style/DictationControl"
+        android:text="@string/voice_setup" />
+
+    <TextView
+        android:id="@+id/dictation_cancel"
+        style="@style/DictationControl"
+        android:text="@string/cancel" />
+</helium314.keyboard.latin.DictationControlsView>

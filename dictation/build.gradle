@@ -1,0 +1,48 @@
+plugins {
+    id 'com.android.library'
+}
+
+def pixelVoiceAbi = providers.gradleProperty('pixelVoiceAbi').get()
+
+android {
+    namespace 'dev.juruc.pixelvoice'
+    compileSdk 36
+    ndkVersion '28.0.13004108'
+
+    defaultConfig {
+        minSdk 33
+        consumerProguardFiles 'consumer-rules.pro'
+        ndk {
+            abiFilters pixelVoiceAbi
+        }
+        externalNativeBuild {
+            cmake {
+                arguments '-DCMAKE_BUILD_TYPE=Release'
+                cppFlags '-std=c++17'
+            }
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path file('../CMakeLists.txt')
+            version '3.22.1'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    testOptions {
+        targetSdk = 36
+    }
+}
+
+dependencies {
+    compileOnly('androidx.annotation:annotation-jvm:1.9.1') {
+        transitive = false
+    }
+    testImplementation 'junit:junit:4.13.2'
+}

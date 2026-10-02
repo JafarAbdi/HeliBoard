@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: Apache-2.0 AND GPL-3.0-only
 package helium314.keyboard.latin
 
-import android.app.Application
 import android.os.Build
+import dev.juruc.pixelvoice.VoiceApplication
 import helium314.keyboard.keyboard.emoji.SupportedEmojis
 import helium314.keyboard.latin.define.DebugFlags
 import helium314.keyboard.latin.settings.Defaults
@@ -17,7 +17,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class App : Application() {
+class App : VoiceApplication() {
     override fun onCreate() {
         super.onCreate()
         DebugFlags.init(this)

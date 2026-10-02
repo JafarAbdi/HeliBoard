@@ -23,7 +23,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 @RunWith(RobolectricTestRunner::class)
-@Config(shadows = [
+@Config(sdk = [35], shadows = [
     ShadowInputMethodManager2::class
 ])
 class SubtypeTest {
@@ -52,7 +52,11 @@ class SubtypeTest {
 
     @Test fun subtypeStaysEnabledOnEdits() {
         val prefs = latinIME.prefs()
-        prefs.edit().putString(Settings.PREF_ADDITIONAL_SUBTYPES, "").apply() // clear it for convenience
+        prefs.edit()
+            .putString(Settings.PREF_ADDITIONAL_SUBTYPES, "")
+            .putString(Settings.PREF_ENABLED_SUBTYPES, "")
+            .apply()
+        SubtypeSettings.reloadEnabledSubtypes(latinIME)
 
         // edit enabled resource subtype
         val from = SubtypeSettings.getResourceSubtypesForLocale("es".constructLocale()).first()

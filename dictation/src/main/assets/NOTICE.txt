@@ -1,0 +1,92 @@
+Pixel Voice Keyboard is a private modified HeliBoard fork with local dictation.
+These notices do not replace the applicable licenses.
+
+HeliBoard v4.1 and OpenBoard
+Source: https://github.com/HeliBorg/HeliBoard
+Pinned revision: 9f5bb635c2e8609dcd95dc7506c0c58fba82a52c
+License: GNU General Public License v3.0, GPL-3.0-only
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Pixel Voice modifies application identity, build integration, and keyboard dictation.
+Imported source copyright and license notices remain applicable.
+OpenBoard source: https://github.com/openboard-team/openboard
+
+AOSP Keyboard
+Source: https://android.googlesource.com/platform/packages/inputmethods/LatinIME/
+Copyright notices of The Android Open Source Project are retained in imported source.
+License: Apache License 2.0
+License URI: https://www.apache.org/licenses/LICENSE-2.0
+
+HeliBoard icon
+Creators: Fabian OvrWrt, with contributions from The Eclectic Dyslexic
+License: Creative Commons Attribution-ShareAlike 4.0 International
+License URI: https://creativecommons.org/licenses/by-sa/4.0/
+Keyboard dictionaries, layouts, and other upstream assets retain their embedded notices.
+This notice does not supersede imported source license headers or asset licenses.
+
+Pixel Voice also uses these third-party works:
+
+Parakeet Unified EN 0.6B Q8_0 model
+Distributor source: https://huggingface.co/handy-computer/parakeet-unified-en-0.6b-gguf
+Distributor revision: 7e948f21b7bdbac698d3318db9d350f1096f3b6c
+Distributor card claim: Creative Commons Attribution 4.0 International (CC BY 4.0)
+Base model card: https://huggingface.co/nvidia/parakeet-unified-en-0.6b/raw/d4ac992/README.md
+Base model license identified by NVIDIA: NVIDIA Open Model License
+License terms: https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-open-model-license/
+The distributor card also reproduces NVIDIA's notice that the base model is governed by the NVIDIA Open Model License. This notice records both statements without interpreting how they apply to redistribution.
+
+transcribe.cpp
+Source: https://github.com/handy-computer/transcribe.cpp
+License: MIT
+Includes ggml, Copyright (c) 2023-2026 The ggml authors, MIT.
+
+The existing transcribe.cpp and ggml MIT license texts follow.
+Keyboard license URIs are listed above; canonical texts accompany the upstream source.
+
+Handy was used as a reference for the model catalog and product requirements.
+Source: https://github.com/cjpais/Handy
+License: MIT
+
+MIT License
+
+Copyright (c) 2026 The transcribe.cpp authors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+MIT License
+
+Copyright (c) 2023-2026 The ggml authors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+

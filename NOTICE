@@ -1,0 +1,53 @@
+Pixel Voice Keyboard is a private modified HeliBoard fork with local dictation.
+These notices do not replace the applicable licenses.
+
+HeliBoard v4.1 and OpenBoard
+Source: https://github.com/HeliBorg/HeliBoard
+Source revisions, fork patches, and maintenance: EXTERNAL_SOURCES.md
+License: GNU General Public License v3.0, GPL-3.0-only
+Canonical text: LICENSE
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Pixel Voice modifies application identity, build integration, and keyboard dictation.
+Imported source copyright and license notices remain applicable.
+OpenBoard source: https://github.com/openboard-team/openboard
+
+AOSP Keyboard
+Source: https://android.googlesource.com/platform/packages/inputmethods/LatinIME/
+Copyright notices of The Android Open Source Project are retained in imported source.
+License: Apache License 2.0
+Canonical text: LICENSE-Apache-2.0
+License URI: https://www.apache.org/licenses/LICENSE-2.0
+
+HeliBoard icon
+Creators: Fabian OvrWrt, with contributions from The Eclectic Dyslexic
+License: Creative Commons Attribution-ShareAlike 4.0 International
+Canonical text: LICENSE-CC-BY-SA-4.0
+License URI: https://creativecommons.org/licenses/by-sa/4.0/
+Keyboard dictionaries, layouts, and other upstream assets are retained.
+Their embedded notices and imported source license headers are not superseded here.
+
+Pixel Voice also uses these third-party works:
+
+Parakeet Unified EN 0.6B Q8_0 model
+Distributor source: https://huggingface.co/handy-computer/parakeet-unified-en-0.6b-gguf
+Distributor revision: 7e948f21b7bdbac698d3318db9d350f1096f3b6c
+Distributor card claim: Creative Commons Attribution 4.0 International (CC BY 4.0)
+Base model card: https://huggingface.co/nvidia/parakeet-unified-en-0.6b/raw/d4ac992/README.md
+Base model license identified by NVIDIA: NVIDIA Open Model License
+License terms: https://www.nvidia.com/en-us/agreements/enterprise-software/nvidia-open-model-license/
+The distributor card also reproduces NVIDIA's notice that the base model is governed by the NVIDIA Open Model License. This notice records both statements without interpreting how they apply to redistribution.
+
+transcribe.cpp
+Source: https://github.com/handy-computer/transcribe.cpp
+Submodule revision and maintenance: EXTERNAL_SOURCES.md
+License: MIT
+Includes ggml, Copyright (c) 2023-2026 The ggml authors, MIT.
+
+Keyboard attribution and the existing transcribe.cpp and ggml license texts accompany the APK in assets/NOTICE.txt.
+The combined application is governed by the GPL text in LICENSE.
+The pre-fork dictation MIT notice is preserved in dictation/LICENSE.
+
+Handy was used as a reference for the model catalog and product requirements.
+It is not built or shipped. Reference provenance is in EXTERNAL_SOURCES.md.
+Source: https://github.com/cjpais/Handy
+License: MIT

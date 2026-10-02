@@ -1,4 +1,3 @@
-import com.android.build.api.variant.ApplicationVariant
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -8,18 +7,30 @@ plugins {
     kotlin("plugin.compose") version "2.3.20"
 }
 
+val pixelVoiceAbi = providers.gradleProperty("pixelVoiceAbi").get()
+val supportedAbis = listOf("arm64-v8a", "x86_64")
+if (pixelVoiceAbi !in supportedAbis) {
+    throw GradleException("pixelVoiceAbi must be one of ${supportedAbis.joinToString()}")
+}
+
 android {
     compileSdk = 36
 
+    // AGP generates a new debug key when the keystore is missing, which would break in-place updates.
+    check(signingConfigs.getByName("debug").storeFile?.isFile == true) {
+        "Existing debug keystore not found. Refusing to sign with a newly generated key."
+    }
+
     defaultConfig {
         applicationId = "helium314.keyboard"
-        minSdk = 21
+        minSdk = 33
         targetSdk = 36
         versionCode = 4101
         versionName = "4.1"
+        testInstrumentationRunner = "dev.juruc.pixelvoice.PixelVoiceTestRunner"
         ndk {
             abiFilters.clear()
-            abiFilters.addAll(listOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64"))
+            abiFilters.add(pixelVoiceAbi)
         }
         proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
     }
@@ -32,44 +43,21 @@ android {
             isJniDebuggable = false
         }
         create("nouserlib") { // same as release, but does not allow the user to provide a library
+            matchingFallbacks += "release"
             isMinifyEnabled = true
             isShrinkResources = false
             isDebuggable = false
             isJniDebuggable = false
         }
         debug {
-            // "normal" debug has minify for smaller APK to fit the GitHub 25 MB limit when zipped
-            // and for better performance in case users want to install a debug APK
-            isMinifyEnabled = true
+            isMinifyEnabled = false
             isJniDebuggable = false
             applicationIdSuffix = ".debug"
         }
         create("runTests") { // build variant for running tests on CI that skips tests known to fail
+            matchingFallbacks += "release"
             isMinifyEnabled = false
             isJniDebuggable = false
-        }
-        create("debugNoMinify") { // for faster builds in IDE
-            isDebuggable = true
-            isMinifyEnabled = false
-            isJniDebuggable = false
-            signingConfig = signingConfigs.getByName("debug")
-            applicationIdSuffix = ".debug"
-        }
-
-        androidComponents.onVariants { variant: ApplicationVariant ->
-            if (variant.buildType == "debug") {
-                // got a little too big for GitHub after some dependency upgrades, so we remove the largest dictionary
-                variant.androidResources.ignoreAssetsPatterns = listOf("main_ro.dict")
-                variant.proguardFiles = emptyList()
-                //noinspection ProguardAndroidTxtUsage we intentionally use the "normal" file here
-                variant.proguardFiles.add(project.layout.buildDirectory.file(project.buildFile.parent + "/dontoptimize.pro"))
-                variant.proguardFiles.add(project.layout.buildDirectory.file(project.buildFile.parent + "/proguard-rules.pro"))
-            }
-            variant.outputs.forEach { output ->
-                if (output is com.android.build.api.variant.impl.VariantOutputImpl) {
-                    output.outputFileName = "HeliBoard_${defaultConfig.versionName}-${variant.buildType}.apk"
-                }
-            }
         }
     }
 
@@ -86,10 +74,14 @@ android {
     }
     ndkVersion = "28.0.13004108"
 
+    sourceSets {
+        // The native instrumentation feeds the upstream JFK sample through the real engine.
+        getByName("androidTest").assets.srcDir("../third_party/transcribe.cpp/samples")
+    }
+
     packaging {
         jniLibs {
-            // shrinks APK by 3 MB, zipped size unchanged
-            useLegacyPackaging = true
+            useLegacyPackaging = false
         }
     }
 
@@ -121,10 +113,20 @@ android {
     namespace = "helium314.keyboard.latin"
     lint {
         abortOnError = true
+        baseline = file("lint-baseline.xml")
     }
 }
 
+tasks.register<Copy>("stageDebugApk") {
+    dependsOn("assembleDebug")
+    from(layout.buildDirectory.file("outputs/apk/debug/app-debug.apk"))
+    into(layout.buildDirectory.dir("outputs/pixelVoice/$pixelVoiceAbi"))
+    rename { "pixel-voice-$pixelVoiceAbi-debug.apk" }
+}
+
 dependencies {
+    implementation(project(":dictation"))
+
     // androidx
     implementation("androidx.core:core-ktx:1.17.0") // 1.18.0 requires minSdk 23
     implementation("androidx.recyclerview:recyclerview:1.4.0")
@@ -142,7 +144,6 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.ui:ui-tooling-preview")
     debugImplementation("androidx.compose.ui:ui-tooling")
-    "debugNoMinifyImplementation"("androidx.compose.ui:ui-tooling")
     implementation("androidx.navigation:navigation-compose:2.9.8")
     implementation("sh.calvin.reorderable:reorderable:3.1.0") // for easier re-ordering
     implementation("com.github.skydoves:colorpicker-compose:1.1.3") // for user-defined colors

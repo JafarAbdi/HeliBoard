@@ -6,8 +6,6 @@
 package helium314.keyboard.latin
 
 import android.content.Context
-import android.inputmethodservice.InputMethodService
-import android.os.Build
 import android.view.inputmethod.InputMethodInfo
 import android.view.inputmethod.InputMethodManager
 import android.view.inputmethod.InputMethodSubtype
@@ -51,10 +49,6 @@ class RichInputMethodManager private constructor() {
         checkInitialized()
         return imm
     }
-
-    private var shortcuts = listOf<Shortcut>()
-
-    val isShortcutImeReady get() = shortcuts.isNotEmpty()
 
     fun getEnabledInputMethodSubtypes(imi: InputMethodInfo, allowsImplicitlySelectedSubtypes: Boolean) =
         inputMethodInfoCache.getEnabledInputMethodSubtypeList(imi, allowsImplicitlySelectedSubtypes)
@@ -114,7 +108,7 @@ class RichInputMethodManager private constructor() {
     fun onSubtypeChanged(newSubtype: InputMethodSubtype) {
         SubtypeSettings.setSelectedSubtype(context.prefs(), newSubtype)
         currentRichInputMethodSubtype = RichInputMethodSubtype.get(newSubtype)
-        scope.launch { updateShortcutIme() }
+        scope.launch { updateLanguageOnSpacebar() }
         if (DEBUG) {
             Log.w(TAG, "onSubtypeChanged: $currentRichInputMethodSubtype")
         }
@@ -123,41 +117,16 @@ class RichInputMethodManager private constructor() {
     fun refreshSubtypeCaches() {
         inputMethodInfoCache.clear()
         currentRichInputMethodSubtype = RichInputMethodSubtype.get(SubtypeSettings.getSelectedSubtype(context.prefs()))
-        scope.launch { updateShortcutIme() }
+        scope.launch { updateLanguageOnSpacebar() }
     }
 
-    fun switchToShortcutIme(inputMethodService: InputMethodService) = scope.launch {
-        val imiId = shortcuts.firstOrNull()?.imi?.id ?: return@launch
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            inputMethodService.switchInputMethod(imiId, shortcuts.first().subtype)
-        } else {
-            val token = inputMethodService.window.window?.attributes?.token ?: return@launch
-            @Suppress("Deprecation") imm.setInputMethodAndSubtype(token, imiId, shortcuts.first().subtype)
-        }
-    }
-
-    // todo: is shortcutIme only voice input, or can it be something else?
-    //  if always voice input, rename it and other things like mHasShortcutKey
-    private fun updateShortcutIme() {
-        if (DEBUG) {
-            val old = shortcuts.joinToString("; ") { "${it.imi.id}: ${it.subtype.locale()}, ${it.subtype.mode}" }
-            Log.d(TAG, ("Update shortcut IMEs from: $old"))
-        }
+    private fun updateLanguageOnSpacebar() {
         val richSubtype = currentRichInputMethodSubtype
         val implicitlyEnabledSubtype = SubtypeSettings.isEnabled(richSubtype.rawSubtype)
                 && !SubtypeSettings.getEnabledSubtypes(false).contains(richSubtype.rawSubtype)
         val systemLocale = context.resources.configuration.locale()
         LanguageOnSpacebarUtils.onSubtypeChanged(richSubtype, implicitlyEnabledSubtype, systemLocale)
         LanguageOnSpacebarUtils.setEnabledSubtypes(SubtypeSettings.getEnabledSubtypes(true))
-
-        // TODO: Update an icon for shortcut IME
-        shortcuts = inputMethodManager.shortcutInputMethodsAndSubtypes.entries.flatMap { (imi, subtypes) ->
-            subtypes.map { Shortcut(imi, it) }
-        }
-        if (DEBUG) {
-            val new = shortcuts.joinToString("; ") { "${it.imi.id}: ${it.subtype.locale()}, ${it.subtype.mode}" }
-            Log.d(TAG, ("Update shortcut IMEs to: $new"))
-        }
     }
 
     private fun hasMultipleEnabledSubtypes(shouldIncludeAuxiliarySubtypes: Boolean, imiList: List<InputMethodInfo>): Boolean {
@@ -215,7 +184,7 @@ class RichInputMethodManager private constructor() {
         context = ctx
         inputMethodInfoCache = InputMethodInfoCache(imm, ctx.packageName)
 
-        // Initialize the current input method subtype and the shortcut IME.
+        // Initialize the current input method subtype and the spacebar language.
         refreshSubtypeCaches()
     }
 
@@ -292,4 +261,3 @@ private class InputMethodInfoCache(private val imm: InputMethodManager, private 
     }
 }
 
-private class Shortcut(val imi: InputMethodInfo, val subtype: InputMethodSubtype)

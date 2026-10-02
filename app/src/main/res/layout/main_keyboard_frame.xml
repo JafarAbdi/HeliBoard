@@ -12,6 +12,11 @@
     android:layout_gravity="bottom"
     android:orientation="vertical" >
 
+    <!-- Outside strip_container so toolbar and suggestion visibility never hide it. -->
+    <include
+        android:id="@+id/dictation_controls"
+        layout="@layout/dictation_controls" />
+
     <include
         android:id="@+id/strip_container"
         layout="@layout/strip_container" />

@@ -17,6 +17,7 @@ import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.CharacterStyle;
 
+import dev.juruc.pixelvoice.InlineDictation;
 import helium314.keyboard.keyboard.KeyboardSwitcher;
 import helium314.keyboard.latin.common.ConstantsKt;
 import helium314.keyboard.latin.define.DebugFlags;
@@ -295,6 +296,49 @@ public final class RichInputConnection implements PrivateCommandPerformer {
             // TODO: exception instead
             Log.e(TAG, "Batch edit level incorrect : " + mNestLevel);
             Log.e(TAG, DebugLogUtils.getStackTrace(4));
+        }
+    }
+
+    /** Region bounds arrive only after the transaction's fresh ownership proof. */
+    public InlineDictation.DispatchOutcome applyDictationEdit(final InlineDictation.Edit edit) {
+        final InputConnection connection = mParent.getCurrentInputConnection();
+        if (connection == null) return InlineDictation.DispatchOutcome.NOT_SENT;
+        try {
+            connection.beginBatchEdit();
+            if (edit.end() >= 0 && !connection.setComposingRegion(edit.start(), edit.end())) {
+                return InlineDictation.DispatchOutcome.UNCERTAIN;
+            }
+            final boolean sent = switch (edit.operation()) {
+                case BEGIN, FINISH -> connection.finishComposingText();
+                case COMPOSE -> connection.setComposingText(edit.text(), 1);
+                case COMMIT -> connection.commitText(edit.text(), 1)
+                        && connection.finishComposingText();
+            };
+            if (!sent) return InlineDictation.DispatchOutcome.UNCERTAIN;
+            final int naturalCursor = edit.start() + edit.text().length();
+            final boolean restoreSelection = edit.operation() == InlineDictation.Operation.COMMIT
+                    && (edit.selectionStart() != naturalCursor || edit.selectionEnd() != naturalCursor);
+            if (restoreSelection && !connection.setSelection(edit.selectionStart(), edit.selectionEnd())) {
+                return InlineDictation.DispatchOutcome.UNCERTAIN;
+            }
+            mIC = connection;
+            mExpectedSelStart = edit.selectionStart();
+            mExpectedSelEnd = edit.selectionEnd();
+            mComposingText.setLength(0);
+            if (edit.operation() == InlineDictation.Operation.COMPOSE) {
+                mComposingText.append(edit.text());
+            } else if (edit.operation() == InlineDictation.Operation.COMMIT && !restoreSelection) {
+                mCommittedTextBeforeComposingText.append(edit.text());
+            } else {
+                mCommittedTextBeforeComposingText.setLength(0);
+                final CharSequence before = connection.getTextBeforeCursor(NUM_CHARS_TO_GET_BEFORE_CURSOR, 0);
+                if (before != null) mCommittedTextBeforeComposingText.append(before);
+            }
+            return InlineDictation.DispatchOutcome.SENT;
+        } catch (RuntimeException error) {
+            return InlineDictation.DispatchOutcome.UNCERTAIN;
+        } finally {
+            connection.endBatchEdit();
         }
     }
 

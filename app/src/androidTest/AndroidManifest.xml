@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application android:theme="@android:style/Theme.Material.Light.NoActionBar">
+        <activity
+            android:name="dev.juruc.pixelvoice.KeyboardTestActivity"
+            android:exported="true"
+            android:process=":keyboard_test_host" />
+        <activity
+            android:name="dev.juruc.pixelvoice.WebViewTestActivity"
+            android:exported="true"
+            android:process=":keyboard_test_host" />
+    </application>
+</manifest>

@@ -1,0 +1,753 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Only the 68 inherited TalkBack MissingTranslation issues. Untranslated locales retain upstream English fallback. -->
+<issues format="6" by="lint 8.13.2" type="baseline">
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_use_headphones&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_use_headphones&quot;&gt;Plug in a headset to hear password keys spoken aloud.&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="9"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_current_text_is&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_current_text_is&quot;&gt;Current text is &quot;%s&quot;&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="12"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_no_text_entered&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_no_text_entered&quot;&gt;No text entered&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="14"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_auto_correct&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_auto_correct&quot;&gt;&lt;xliff:g id=&quot;KEY_NAME&quot; example=&quot;Space&quot;&gt;%1$s&lt;/xliff:g&gt; corrects &lt;xliff:g id=&quot;ORIGINAL_WORD&quot;&gt;%2$s&lt;/xliff:g&gt; to &lt;xliff:g id=&quot;CORRECTED_WORD&quot;&gt;%3$s&lt;/xliff:g&gt;&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="17"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_auto_correct_obscured&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_auto_correct_obscured&quot;&gt;&lt;xliff:g id=&quot;KEY_NAME&quot; example=&quot;Space&quot;&gt;%1$s&lt;/xliff:g&gt; performs auto-correction&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="19"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_empty_suggestion&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_empty_suggestion&quot;&gt;No suggestion&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="22"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_clipboard_suggestion&quot; is not translated in &quot;hi&quot; (Hindi), &quot;de&quot; (German), &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;lo&quot; (Lao), &quot;pt&quot; (Portuguese), &quot;fil&quot; (Filipino; Pilipino), &quot;lt&quot; (Lithuanian), &quot;hr&quot; (Croatian), &quot;lv&quot; (Latvian), &quot;bal&quot; (Baluchi), &quot;hu&quot; (Hungarian), &quot;hy&quot; (Armenian), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;uk&quot; (Ukrainian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;ur&quot; (Urdu), &quot;mk&quot; (Macedonian), &quot;ml&quot; (Malayalam), &quot;mn&quot; (Mongolian), &quot;af&quot; (Afrikaans), &quot;in&quot; (Indonesian), &quot;mr&quot; (Marathi), &quot;uz&quot; (Uzbek), &quot;ms&quot; (Malay), &quot;el&quot; (Greek), &quot;en&quot; (English), &quot;is&quot; (Icelandic), &quot;it&quot; (Italian), &quot;am&quot; (Amharic), &quot;my&quot; (Burmese), &quot;es&quot; (Spanish), &quot;iw&quot; (Hebrew), &quot;zh&quot; (Chinese), &quot;et&quot; (Estonian), &quot;eu&quot; (Basque), &quot;ar&quot; (Arabic), &quot;as&quot; (Assamese), &quot;vi&quot; (Vietnamese), &quot;nb&quot; (Norwegian Bokmål), &quot;ja&quot; (Japanese), &quot;ne&quot; (Nepali), &quot;az&quot; (Azerbaijani), &quot;fa&quot; (Persian), &quot;zu&quot; (Zulu), &quot;ro&quot; (Romanian), &quot;nl&quot; (Dutch), &quot;nn&quot; (Norwegian Nynorsk), &quot;be&quot; (Belarusian), &quot;fi&quot; (Finnish), &quot;ru&quot; (Russian), &quot;bg&quot; (Bulgarian), &quot;bn&quot; (Bangla), &quot;fr&quot; (French), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;bs&quot; (Bosnian), &quot;ka&quot; (Georgian), &quot;si&quot; (Sinhala), &quot;sk&quot; (Slovak), &quot;sl&quot; (Slovenian), &quot;gd&quot; (Scottish Gaelic), &quot;ca&quot; (Catalan), &quot;sq&quot; (Albanian), &quot;sr&quot; (Serbian), &quot;kk&quot; (Kazakh), &quot;km&quot; (Khmer), &quot;kn&quot; (Kannada), &quot;or&quot; (Odia), &quot;sv&quot; (Swedish), &quot;ko&quot; (Korean), &quot;sw&quot; (Swahili), &quot;gl&quot; (Galician), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;ta&quot; (Tamil), &quot;gu&quot; (Gujarati), &quot;ky&quot; (Kyrgyz), &quot;cs&quot; (Czech), &quot;pa&quot; (Punjabi), &quot;te&quot; (Telugu), &quot;tg&quot; (Tajik), &quot;th&quot; (Thai), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish), &quot;tl&quot; (Tagalog), &quot;pl&quot; (Polish), &quot;da&quot; (Danish), &quot;tr&quot; (Turkish)"
+        errorLine1="    &lt;string name=&quot;spoken_clipboard_suggestion&quot;&gt;Clipboard suggestion&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="24"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_unknown&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;be&quot; (Belarusian), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_unknown&quot;&gt;Unknown character&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="27"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_shift&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_shift&quot;&gt;Shift&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="29"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_symbols_shift&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_symbols_shift&quot;&gt;More symbols&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="31"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_shift_shifted&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_shift_shifted&quot;&gt;Shift&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="33"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_symbols_shift_shifted&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_symbols_shift_shifted&quot;&gt;Symbols&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="35"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_caps_lock&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_caps_lock&quot;&gt;Shift&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="37"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_delete&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_delete&quot;&gt;Delete&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="39"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_to_symbol&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_to_symbol&quot;&gt;Symbols&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="41"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_to_alpha&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_to_alpha&quot;&gt;Letters&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="43"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_to_numeric&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_to_numeric&quot;&gt;Numbers&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="45"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_settings&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_settings&quot;&gt;Settings&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="47"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_tab&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_tab&quot;&gt;Tab&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="49"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_space&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_space&quot;&gt;Space&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="51"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_mic&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_mic&quot;&gt;Voice input&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="53"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_emoji&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_emoji&quot;&gt;Emoji&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="55"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_return&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_return&quot;&gt;Return&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="57"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_search&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_search&quot;&gt;Search&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="59"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_dot&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_dot&quot;&gt;Dot&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="61"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_language_switch&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_language_switch&quot;&gt;Switch language&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="63"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_action_next&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_action_next&quot;&gt;Next&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="65"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_action_previous&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_action_previous&quot;&gt;Previous&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="67"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_shiftmode_on&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_shiftmode_on&quot;&gt;Shift enabled&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="70"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_shiftmode_locked&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_shiftmode_locked&quot;&gt;Caps lock enabled&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="72"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_mode_symbol&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_mode_symbol&quot;&gt;Symbols mode&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="74"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_mode_symbol_shift&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_mode_symbol_shift&quot;&gt;More symbols mode&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="76"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_mode_alpha&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_mode_alpha&quot;&gt;Letters mode&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="78"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_mode_dpad&quot; is not translated in &quot;hi&quot; (Hindi), &quot;de&quot; (German), &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;lo&quot; (Lao), &quot;pt&quot; (Portuguese), &quot;fil&quot; (Filipino; Pilipino), &quot;lt&quot; (Lithuanian), &quot;hr&quot; (Croatian), &quot;lv&quot; (Latvian), &quot;bal&quot; (Baluchi), &quot;hu&quot; (Hungarian), &quot;hy&quot; (Armenian), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;uk&quot; (Ukrainian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;ur&quot; (Urdu), &quot;mk&quot; (Macedonian), &quot;ml&quot; (Malayalam), &quot;mn&quot; (Mongolian), &quot;af&quot; (Afrikaans), &quot;in&quot; (Indonesian), &quot;mr&quot; (Marathi), &quot;uz&quot; (Uzbek), &quot;ms&quot; (Malay), &quot;el&quot; (Greek), &quot;en&quot; (English), &quot;is&quot; (Icelandic), &quot;it&quot; (Italian), &quot;am&quot; (Amharic), &quot;my&quot; (Burmese), &quot;es&quot; (Spanish), &quot;iw&quot; (Hebrew), &quot;zh&quot; (Chinese), &quot;et&quot; (Estonian), &quot;eu&quot; (Basque), &quot;ar&quot; (Arabic), &quot;as&quot; (Assamese), &quot;vi&quot; (Vietnamese), &quot;nb&quot; (Norwegian Bokmål), &quot;ja&quot; (Japanese), &quot;ne&quot; (Nepali), &quot;az&quot; (Azerbaijani), &quot;fa&quot; (Persian), &quot;zu&quot; (Zulu), &quot;ro&quot; (Romanian), &quot;nl&quot; (Dutch), &quot;nn&quot; (Norwegian Nynorsk), &quot;be&quot; (Belarusian), &quot;fi&quot; (Finnish), &quot;ru&quot; (Russian), &quot;bg&quot; (Bulgarian), &quot;bn&quot; (Bangla), &quot;fr&quot; (French), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;bs&quot; (Bosnian), &quot;ka&quot; (Georgian), &quot;si&quot; (Sinhala), &quot;sk&quot; (Slovak), &quot;sl&quot; (Slovenian), &quot;gd&quot; (Scottish Gaelic), &quot;ca&quot; (Catalan), &quot;sq&quot; (Albanian), &quot;sr&quot; (Serbian), &quot;kk&quot; (Kazakh), &quot;km&quot; (Khmer), &quot;kn&quot; (Kannada), &quot;or&quot; (Odia), &quot;sv&quot; (Swedish), &quot;ko&quot; (Korean), &quot;sw&quot; (Swahili), &quot;gl&quot; (Galician), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;ta&quot; (Tamil), &quot;gu&quot; (Gujarati), &quot;ky&quot; (Kyrgyz), &quot;cs&quot; (Czech), &quot;pa&quot; (Punjabi), &quot;te&quot; (Telugu), &quot;tg&quot; (Tajik), &quot;th&quot; (Thai), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish), &quot;tl&quot; (Tagalog), &quot;pl&quot; (Polish), &quot;da&quot; (Danish), &quot;tr&quot; (Turkish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_mode_dpad&quot;&gt;D-pad mode&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="80"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_mode_numpad&quot; is not translated in &quot;hi&quot; (Hindi), &quot;de&quot; (German), &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;lo&quot; (Lao), &quot;pt&quot; (Portuguese), &quot;fil&quot; (Filipino; Pilipino), &quot;lt&quot; (Lithuanian), &quot;hr&quot; (Croatian), &quot;lv&quot; (Latvian), &quot;bal&quot; (Baluchi), &quot;hu&quot; (Hungarian), &quot;hy&quot; (Armenian), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;uk&quot; (Ukrainian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;ur&quot; (Urdu), &quot;mk&quot; (Macedonian), &quot;ml&quot; (Malayalam), &quot;mn&quot; (Mongolian), &quot;af&quot; (Afrikaans), &quot;in&quot; (Indonesian), &quot;mr&quot; (Marathi), &quot;uz&quot; (Uzbek), &quot;ms&quot; (Malay), &quot;el&quot; (Greek), &quot;en&quot; (English), &quot;is&quot; (Icelandic), &quot;it&quot; (Italian), &quot;am&quot; (Amharic), &quot;my&quot; (Burmese), &quot;es&quot; (Spanish), &quot;iw&quot; (Hebrew), &quot;zh&quot; (Chinese), &quot;et&quot; (Estonian), &quot;eu&quot; (Basque), &quot;ar&quot; (Arabic), &quot;as&quot; (Assamese), &quot;vi&quot; (Vietnamese), &quot;nb&quot; (Norwegian Bokmål), &quot;ja&quot; (Japanese), &quot;ne&quot; (Nepali), &quot;az&quot; (Azerbaijani), &quot;fa&quot; (Persian), &quot;zu&quot; (Zulu), &quot;ro&quot; (Romanian), &quot;nl&quot; (Dutch), &quot;nn&quot; (Norwegian Nynorsk), &quot;be&quot; (Belarusian), &quot;fi&quot; (Finnish), &quot;ru&quot; (Russian), &quot;bg&quot; (Bulgarian), &quot;bn&quot; (Bangla), &quot;fr&quot; (French), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;bs&quot; (Bosnian), &quot;ka&quot; (Georgian), &quot;si&quot; (Sinhala), &quot;sk&quot; (Slovak), &quot;sl&quot; (Slovenian), &quot;gd&quot; (Scottish Gaelic), &quot;ca&quot; (Catalan), &quot;sq&quot; (Albanian), &quot;sr&quot; (Serbian), &quot;kk&quot; (Kazakh), &quot;km&quot; (Khmer), &quot;kn&quot; (Kannada), &quot;or&quot; (Odia), &quot;sv&quot; (Swedish), &quot;ko&quot; (Korean), &quot;sw&quot; (Swahili), &quot;gl&quot; (Galician), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;ta&quot; (Tamil), &quot;gu&quot; (Gujarati), &quot;ky&quot; (Kyrgyz), &quot;cs&quot; (Czech), &quot;pa&quot; (Punjabi), &quot;te&quot; (Telugu), &quot;tg&quot; (Tajik), &quot;th&quot; (Thai), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish), &quot;tl&quot; (Tagalog), &quot;pl&quot; (Polish), &quot;da&quot; (Danish), &quot;tr&quot; (Turkish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_mode_numpad&quot;&gt;Numpad mode&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="82"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_mode_number&quot; is not translated in &quot;hi&quot; (Hindi), &quot;de&quot; (German), &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;lo&quot; (Lao), &quot;pt&quot; (Portuguese), &quot;fil&quot; (Filipino; Pilipino), &quot;lt&quot; (Lithuanian), &quot;hr&quot; (Croatian), &quot;lv&quot; (Latvian), &quot;bal&quot; (Baluchi), &quot;hu&quot; (Hungarian), &quot;hy&quot; (Armenian), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;uk&quot; (Ukrainian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;ur&quot; (Urdu), &quot;mk&quot; (Macedonian), &quot;ml&quot; (Malayalam), &quot;mn&quot; (Mongolian), &quot;af&quot; (Afrikaans), &quot;in&quot; (Indonesian), &quot;mr&quot; (Marathi), &quot;uz&quot; (Uzbek), &quot;ms&quot; (Malay), &quot;el&quot; (Greek), &quot;en&quot; (English), &quot;is&quot; (Icelandic), &quot;it&quot; (Italian), &quot;am&quot; (Amharic), &quot;my&quot; (Burmese), &quot;es&quot; (Spanish), &quot;iw&quot; (Hebrew), &quot;zh&quot; (Chinese), &quot;et&quot; (Estonian), &quot;eu&quot; (Basque), &quot;ar&quot; (Arabic), &quot;as&quot; (Assamese), &quot;vi&quot; (Vietnamese), &quot;nb&quot; (Norwegian Bokmål), &quot;ja&quot; (Japanese), &quot;ne&quot; (Nepali), &quot;az&quot; (Azerbaijani), &quot;fa&quot; (Persian), &quot;zu&quot; (Zulu), &quot;ro&quot; (Romanian), &quot;nl&quot; (Dutch), &quot;nn&quot; (Norwegian Nynorsk), &quot;be&quot; (Belarusian), &quot;fi&quot; (Finnish), &quot;ru&quot; (Russian), &quot;bg&quot; (Bulgarian), &quot;bn&quot; (Bangla), &quot;fr&quot; (French), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;bs&quot; (Bosnian), &quot;ka&quot; (Georgian), &quot;si&quot; (Sinhala), &quot;sk&quot; (Slovak), &quot;sl&quot; (Slovenian), &quot;gd&quot; (Scottish Gaelic), &quot;ca&quot; (Catalan), &quot;sq&quot; (Albanian), &quot;sr&quot; (Serbian), &quot;kk&quot; (Kazakh), &quot;km&quot; (Khmer), &quot;kn&quot; (Kannada), &quot;or&quot; (Odia), &quot;sv&quot; (Swedish), &quot;ko&quot; (Korean), &quot;sw&quot; (Swahili), &quot;gl&quot; (Galician), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;ta&quot; (Tamil), &quot;gu&quot; (Gujarati), &quot;ky&quot; (Kyrgyz), &quot;cs&quot; (Czech), &quot;pa&quot; (Punjabi), &quot;te&quot; (Telugu), &quot;tg&quot; (Tajik), &quot;th&quot; (Thai), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish), &quot;tl&quot; (Tagalog), &quot;pl&quot; (Polish), &quot;da&quot; (Danish), &quot;tr&quot; (Turkish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_mode_number&quot;&gt;Numbers mode&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="84"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_mode_phone&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_mode_phone&quot;&gt;Phone mode&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="86"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_mode_phone_shift&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_mode_phone_shift&quot;&gt;Phone symbols mode&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="88"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_mode_clipboard&quot; is not translated in &quot;hi&quot; (Hindi), &quot;de&quot; (German), &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;lo&quot; (Lao), &quot;pt&quot; (Portuguese), &quot;fil&quot; (Filipino; Pilipino), &quot;lt&quot; (Lithuanian), &quot;hr&quot; (Croatian), &quot;lv&quot; (Latvian), &quot;bal&quot; (Baluchi), &quot;hu&quot; (Hungarian), &quot;hy&quot; (Armenian), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;uk&quot; (Ukrainian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;ur&quot; (Urdu), &quot;mk&quot; (Macedonian), &quot;ml&quot; (Malayalam), &quot;mn&quot; (Mongolian), &quot;af&quot; (Afrikaans), &quot;in&quot; (Indonesian), &quot;mr&quot; (Marathi), &quot;uz&quot; (Uzbek), &quot;ms&quot; (Malay), &quot;el&quot; (Greek), &quot;en&quot; (English), &quot;is&quot; (Icelandic), &quot;it&quot; (Italian), &quot;am&quot; (Amharic), &quot;my&quot; (Burmese), &quot;es&quot; (Spanish), &quot;iw&quot; (Hebrew), &quot;zh&quot; (Chinese), &quot;et&quot; (Estonian), &quot;eu&quot; (Basque), &quot;ar&quot; (Arabic), &quot;as&quot; (Assamese), &quot;vi&quot; (Vietnamese), &quot;nb&quot; (Norwegian Bokmål), &quot;ja&quot; (Japanese), &quot;ne&quot; (Nepali), &quot;az&quot; (Azerbaijani), &quot;fa&quot; (Persian), &quot;zu&quot; (Zulu), &quot;ro&quot; (Romanian), &quot;nl&quot; (Dutch), &quot;nn&quot; (Norwegian Nynorsk), &quot;be&quot; (Belarusian), &quot;fi&quot; (Finnish), &quot;ru&quot; (Russian), &quot;bg&quot; (Bulgarian), &quot;bn&quot; (Bangla), &quot;fr&quot; (French), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;bs&quot; (Bosnian), &quot;ka&quot; (Georgian), &quot;si&quot; (Sinhala), &quot;sk&quot; (Slovak), &quot;sl&quot; (Slovenian), &quot;gd&quot; (Scottish Gaelic), &quot;ca&quot; (Catalan), &quot;sq&quot; (Albanian), &quot;sr&quot; (Serbian), &quot;kk&quot; (Kazakh), &quot;km&quot; (Khmer), &quot;kn&quot; (Kannada), &quot;or&quot; (Odia), &quot;sv&quot; (Swedish), &quot;ko&quot; (Korean), &quot;sw&quot; (Swahili), &quot;gl&quot; (Galician), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;ta&quot; (Tamil), &quot;gu&quot; (Gujarati), &quot;ky&quot; (Kyrgyz), &quot;cs&quot; (Czech), &quot;pa&quot; (Punjabi), &quot;te&quot; (Telugu), &quot;tg&quot; (Tajik), &quot;th&quot; (Thai), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish), &quot;tl&quot; (Tagalog), &quot;pl&quot; (Polish), &quot;da&quot; (Danish), &quot;tr&quot; (Turkish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_mode_clipboard&quot;&gt;Clipboard mode&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="90"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;announce_keyboard_hidden&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;announce_keyboard_hidden&quot;&gt;Keyboard hidden&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="93"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;announce_keyboard_mode&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;announce_keyboard_mode&quot;&gt;Showing &lt;xliff:g id=&quot;KEYBOARD_MODE&quot; example=&quot;email&quot;&gt;%s&lt;/xliff:g&gt; keyboard&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="95"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;keyboard_mode_date&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;keyboard_mode_date&quot;&gt;date&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="97"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;keyboard_mode_date_time&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;keyboard_mode_date_time&quot;&gt;date and time&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="99"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;keyboard_mode_email&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;keyboard_mode_email&quot;&gt;email&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="101"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;keyboard_mode_im&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;keyboard_mode_im&quot;&gt;messaging&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="103"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;keyboard_mode_number&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;keyboard_mode_number&quot;&gt;number&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="105"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;keyboard_mode_phone&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;keyboard_mode_phone&quot;&gt;phone&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="107"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;keyboard_mode_text&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;keyboard_mode_text&quot;&gt;text&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="109"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;keyboard_mode_time&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;keyboard_mode_time&quot;&gt;time&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="111"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;keyboard_mode_url&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;keyboard_mode_url&quot;&gt;URL&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="113"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_emoji_category_recents&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_emoji_category_recents&quot;&gt;Recents&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="116"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_emoji_category_objects&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_emoji_category_objects&quot;&gt;Objects&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="118"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_emoji_category_symbols&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_emoji_category_symbols&quot;&gt;Symbols&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="120"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_emoji_category_flags&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_emoji_category_flags&quot;&gt;Flags&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="122"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_emoji_category_eight_smiley&quot; is not translated in &quot;hi&quot; (Hindi), &quot;de&quot; (German), &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;lo&quot; (Lao), &quot;pt&quot; (Portuguese), &quot;fil&quot; (Filipino; Pilipino), &quot;lt&quot; (Lithuanian), &quot;hr&quot; (Croatian), &quot;lv&quot; (Latvian), &quot;bal&quot; (Baluchi), &quot;hu&quot; (Hungarian), &quot;hy&quot; (Armenian), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;uk&quot; (Ukrainian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;ur&quot; (Urdu), &quot;mk&quot; (Macedonian), &quot;ml&quot; (Malayalam), &quot;mn&quot; (Mongolian), &quot;af&quot; (Afrikaans), &quot;in&quot; (Indonesian), &quot;mr&quot; (Marathi), &quot;uz&quot; (Uzbek), &quot;ms&quot; (Malay), &quot;el&quot; (Greek), &quot;en&quot; (English), &quot;is&quot; (Icelandic), &quot;it&quot; (Italian), &quot;am&quot; (Amharic), &quot;my&quot; (Burmese), &quot;es&quot; (Spanish), &quot;iw&quot; (Hebrew), &quot;zh&quot; (Chinese), &quot;et&quot; (Estonian), &quot;eu&quot; (Basque), &quot;ar&quot; (Arabic), &quot;as&quot; (Assamese), &quot;vi&quot; (Vietnamese), &quot;nb&quot; (Norwegian Bokmål), &quot;ja&quot; (Japanese), &quot;ne&quot; (Nepali), &quot;az&quot; (Azerbaijani), &quot;fa&quot; (Persian), &quot;zu&quot; (Zulu), &quot;ro&quot; (Romanian), &quot;nl&quot; (Dutch), &quot;nn&quot; (Norwegian Nynorsk), &quot;be&quot; (Belarusian), &quot;fi&quot; (Finnish), &quot;ru&quot; (Russian), &quot;bg&quot; (Bulgarian), &quot;bn&quot; (Bangla), &quot;fr&quot; (French), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;bs&quot; (Bosnian), &quot;ka&quot; (Georgian), &quot;si&quot; (Sinhala), &quot;sk&quot; (Slovak), &quot;sl&quot; (Slovenian), &quot;gd&quot; (Scottish Gaelic), &quot;ca&quot; (Catalan), &quot;sq&quot; (Albanian), &quot;sr&quot; (Serbian), &quot;kk&quot; (Kazakh), &quot;km&quot; (Khmer), &quot;kn&quot; (Kannada), &quot;or&quot; (Odia), &quot;sv&quot; (Swedish), &quot;ko&quot; (Korean), &quot;sw&quot; (Swahili), &quot;gl&quot; (Galician), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;ta&quot; (Tamil), &quot;gu&quot; (Gujarati), &quot;ky&quot; (Kyrgyz), &quot;cs&quot; (Czech), &quot;pa&quot; (Punjabi), &quot;te&quot; (Telugu), &quot;tg&quot; (Tajik), &quot;th&quot; (Thai), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish), &quot;tl&quot; (Tagalog), &quot;pl&quot; (Polish), &quot;da&quot; (Danish), &quot;tr&quot; (Turkish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_emoji_category_eight_smiley&quot;&gt;Smiley&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="124"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_emoji_category_eight_smiley_people&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_emoji_category_eight_smiley_people&quot;&gt;Smiley and People&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="126"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_emoji_category_eight_animals_nature&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_emoji_category_eight_animals_nature&quot;&gt;Animals &amp;amp; Nature&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="128"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_emoji_category_eight_food_drink&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_emoji_category_eight_food_drink&quot;&gt;Food &amp;amp; Drink&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="130"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_emoji_category_eight_travel_places&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_emoji_category_eight_travel_places&quot;&gt;Travel &amp;amp; Places&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="132"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_emoji_category_eight_activity&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_emoji_category_eight_activity&quot;&gt;Activity&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="134"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_emoji_category_emoticons&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_emoji_category_emoticons&quot;&gt;Emoticons&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="136"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_description_upper_case&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;be&quot; (Belarusian), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_description_upper_case&quot;&gt;Capital &lt;xliff:g id=&quot;LOWER_LETTER&quot; example=&quot;A, E, ligature&quot;&gt;%s&lt;/xliff:g&gt;&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="139"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_letter_0049&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;be&quot; (Belarusian), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_letter_0049&quot;&gt;Capital I&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="142"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_letter_0130&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;be&quot; (Belarusian), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_letter_0130&quot;&gt;Capital I, dot above&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="145"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_open_popup_keys_keyboard&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;be&quot; (Belarusian), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_open_popup_keys_keyboard&quot;&gt;Alternative characters are available&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="148"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_close_popup_keys_keyboard&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;be&quot; (Belarusian), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_close_popup_keys_keyboard&quot;&gt;Alternative characters are dismissed&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="150"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_open_more_suggestions&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;be&quot; (Belarusian), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_open_more_suggestions&quot;&gt;Alternative suggestions are available&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="153"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        message="&quot;spoken_close_more_suggestions&quot; is not translated in &quot;ast&quot; (Asturian; Bable; Leonese; Asturleonese), &quot;fil&quot; (Filipino; Pilipino), &quot;bal&quot; (Baluchi), &quot;dv&quot; (Divehi; Dhivehi; Maldivian), &quot;ota&quot; (Turkish, Ottoman (1500-1928)), &quot;as&quot; (Assamese), &quot;nn&quot; (Norwegian Nynorsk), &quot;be&quot; (Belarusian), &quot;kab&quot; (Kabyle), &quot;sa&quot; (Sanskrit), &quot;sc&quot; (Sardinian), &quot;gd&quot; (Scottish Gaelic), &quot;or&quot; (Odia), &quot;kw&quot; (Cornish), &quot;jpr&quot; (Judeo-Persian), &quot;tg&quot; (Tajik), &quot;cy&quot; (Welsh), &quot;lb&quot; (Luxembourgish)"
+        errorLine1="    &lt;string name=&quot;spoken_close_more_suggestions&quot;&gt;Alternative suggestions are dismissed&lt;/string&gt;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings-talkback-descriptions.xml"
+            line="155"
+            column="13"/>
+    </issue>
+
+</issues>
